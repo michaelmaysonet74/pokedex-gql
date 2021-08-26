@@ -7,7 +7,7 @@ export interface Store {
   deletePokemonRecords: (idsToDelete: string[]) => void;
 }
 
-export class StoreImpl extends DataSource implements Store {
+class StoreImpl extends DataSource implements Store {
   private memory: PokemonRecord[] = [];
 
   constructor() {
