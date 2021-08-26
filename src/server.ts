@@ -1,16 +1,19 @@
 import { ApolloServer } from "apollo-server";
+
 import depthLimit from "graphql-depth-limit";
-import { typeDefs } from "./schema";
-import { resolvers } from "./resolvers";
+import schema from "./schema";
 import { context } from "./context";
 import { dataSources } from "./data-sources";
 
+const baseConfigs = {
+  validationRules: [depthLimit(5)],
+};
+
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   context,
   dataSources,
-  validationRules: [depthLimit(5)],
+  ...baseConfigs,
 });
 
 (async () => {

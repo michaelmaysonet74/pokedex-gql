@@ -66,7 +66,7 @@ export type SchemaPokemonRecord = {
   id: Scalars["ID"];
 };
 
-/** Represents a pokemon record to be delted. */
+/** Represents a pokemon record to be deleted. */
 export type SchemaPokemonToDelete = {
   /** Pokemon id of record that is meant to be deleted. */
   id: Scalars["ID"];

@@ -1,12 +1,12 @@
 import { MetaPokemon } from "..";
-import { SchemaPokemonDimension } from "../../../schema-types";
+import { SchemaPokemonDimensions } from "../../../schema-types";
 
-export const getDimensions = (parent: MetaPokemon): SchemaPokemonDimension => {
+export const getDimensions = (parent: MetaPokemon): SchemaPokemonDimensions => {
   const { height, weight } = parent?._meta?.pokemonDetails ?? {};
   return {
     _meta: {
       height,
       weight,
     },
-  } as SchemaPokemonDimension;
+  } as SchemaPokemonDimensions;
 };
