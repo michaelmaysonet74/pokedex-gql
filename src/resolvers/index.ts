@@ -1,6 +1,6 @@
 /* Objects */
 import Pokemon from "./pokemon";
-import PokemonDimensions from "./pokemon-dimension";
+import PokemonDimensions from "./pokemon-dimensions";
 import SavedPokemon from "./saved-pokemon";
 
 /* Root */

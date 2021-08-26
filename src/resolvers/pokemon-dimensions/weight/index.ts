@@ -1,4 +1,4 @@
-import { MetaPokemonDimension } from "..";
+import { MetaPokemonDimensions } from "..";
 
-export const getWeight = (parent: MetaPokemonDimension): string | null =>
+export const getWeight = (parent: MetaPokemonDimensions): string | null =>
   parent?._meta?.weight?.toString() ?? null;
