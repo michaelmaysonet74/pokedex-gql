@@ -1,3 +1,6 @@
+"""
+All available Pokemon types.
+"""
 enum PokemonType {
   bug
   dark
@@ -19,44 +22,105 @@ enum PokemonType {
   water
 }
 
-input PokemonToSave {
+"""
+Represents a Pokemon Record.
+"""
+interface PokemonRecord {
+    "ID of Pokemon Record."
     id: ID!
+}
+
+"""
+Represents a pokemon record to be saved.
+"""
+input PokemonToSave {
+    "Pokemon id of record that is meant to be saved."
+    id: ID!
+
+    "Pokemon name"
     name: String!
 }
 
+"""
+Represents a pokemon record to be delted.
+"""
 input PokemonToDelete {
+    "Pokemon id of record that is meant to be deleted."
     id: ID!
 }
 
-type DeletedPokemon {
+"""
+Represents a successful deletion of a pokemon record.
+"""
+type DeletedPokemon implements PokemonRecord {
+    "Pokemon id of deleted record."
     id: ID!
 }
 
+"""
+Represents the dimensions of a given pokemon.
+"""
 type PokemonDimensions {
+    "Pokemon's height"
     height: String
+
+    "Pokemon's weight"
     weight: String
 }
 
+"""
+Represents the details of a given Pokemon.
+"""
 type Pokemon {
+    "Pokemon's id, can match pokedex number (not always)."
     id: ID!
+
+    "Pokemon's name"
     name: String
+
+    "List of moves that given Pokemon can learn."
     moves: [String]
+
+    "List of types given Pokemon has, should not be more than two."
     types: [PokemonType]
+
+    "List of abilieties given Pokemon can have."
     abilities: [String]
+
+    "Pokemon dimensions"
     dimensions: PokemonDimensions
+
+    # "Determines if pokemon only have one type or not."
+    # isMonoType: Boolean
 }
 
-type SavedPokemon {
+"""
+Represents a saved pokemon record with its details.
+"""
+type SavedPokemon implements PokemonRecord {
+    "Saved Pokemon id."
     id: ID!
+
+    "Saved Pokemon details."
     pokemonDetails: Pokemon
 }
 
 type Mutation {
-    savePokemons(pokemonsToSave: [PokemonToSave!]!): [SavedPokemon]
-    deletePokemons(pokemonsToDelete: [PokemonToDelete!]!): [DeletedPokemon]
+    "Save one or more pokemon records."
+    savePokemons(
+        pokemonsToSave: [PokemonToSave!]!
+    ): [SavedPokemon]
+
+    "Delete one or more pokemon records."
+    deletePokemons(
+        pokemonsToDelete: [PokemonToDelete!]!
+    ): [DeletedPokemon]
 }
 
 type Query {
+    "Returns the details of a pokemon by the provided id."
     pokemonById(id: ID!): Pokemon
+
+    "Returns all the saved pokemon records with their details."
     savedPokemons: [SavedPokemon]
 }

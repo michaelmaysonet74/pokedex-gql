@@ -12,7 +12,5 @@ const getAuthToken = (headers: IncomingHttpHeaders): string =>
 
 export const context = (ctx: ServerContext): RequestContext => {
   const authToken = getAuthToken(ctx.req.headers);
-  return Object.freeze({
-    authToken,
-  });
+  return { authToken };
 };

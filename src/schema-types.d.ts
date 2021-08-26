@@ -11,14 +11,18 @@ export type Scalars = {
   Float: number;
 };
 
-export type SchemaDeletedPokemon = {
+/** Represents a successful deletion of a pokemon record. */
+export type SchemaDeletedPokemon = SchemaPokemonRecord & {
   __typename?: "DeletedPokemon";
+  /** Pokemon id of deleted record. */
   id: Scalars["ID"];
 };
 
 export type SchemaMutation = {
   __typename?: "Mutation";
+  /** Save one or more pokemon records. */
   savePokemons?: Maybe<Array<Maybe<SchemaSavedPokemon>>>;
+  /** Delete one or more pokemon records. */
   deletePokemons?: Maybe<Array<Maybe<SchemaDeletedPokemon>>>;
 };
 
@@ -30,31 +34,53 @@ export type SchemaMutationDeletePokemonsArgs = {
   pokemonsToDelete: Array<SchemaPokemonToDelete>;
 };
 
+/** Represents the details of a given Pokemon. */
 export type SchemaPokemon = {
   __typename?: "Pokemon";
+  /** Pokemon's id, can match pokedex number (not always). */
   id: Scalars["ID"];
+  /** Pokemon's name */
   name?: Maybe<Scalars["String"]>;
+  /** List of moves that given Pokemon can learn. */
   moves?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  /** List of types given Pokemon has, should not be more than two. */
   types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
+  /** List of abilieties given Pokemon can have. */
   abilities?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  /** Pokemon dimensions */
   dimensions?: Maybe<SchemaPokemonDimensions>;
 };
 
+/** Represents the dimensions of a given pokemon. */
 export type SchemaPokemonDimensions = {
   __typename?: "PokemonDimensions";
+  /** Pokemon's height */
   height?: Maybe<Scalars["String"]>;
+  /** Pokemon's weight */
   weight?: Maybe<Scalars["String"]>;
 };
 
-export type SchemaPokemonToDelete = {
+/** Represents a Pokemon Record. */
+export type SchemaPokemonRecord = {
+  /** ID of Pokemon Record. */
   id: Scalars["ID"];
 };
 
-export type SchemaPokemonToSave = {
+/** Represents a pokemon record to be delted. */
+export type SchemaPokemonToDelete = {
+  /** Pokemon id of record that is meant to be deleted. */
   id: Scalars["ID"];
+};
+
+/** Represents a pokemon record to be saved. */
+export type SchemaPokemonToSave = {
+  /** Pokemon id of record that is meant to be saved. */
+  id: Scalars["ID"];
+  /** Pokemon name */
   name: Scalars["String"];
 };
 
+/** All available Pokemon types. */
 export const enum SchemaPokemonType {
   bug = "bug",
   dark = "dark",
@@ -78,7 +104,9 @@ export const enum SchemaPokemonType {
 
 export type SchemaQuery = {
   __typename?: "Query";
+  /** Returns the details of a pokemon by the provided id. */
   pokemonById?: Maybe<SchemaPokemon>;
+  /** Returns all the saved pokemon records with their details. */
   savedPokemons?: Maybe<Array<Maybe<SchemaSavedPokemon>>>;
 };
 
@@ -86,8 +114,11 @@ export type SchemaQueryPokemonByIdArgs = {
   id: Scalars["ID"];
 };
 
-export type SchemaSavedPokemon = {
+/** Represents a saved pokemon record with its details. */
+export type SchemaSavedPokemon = SchemaPokemonRecord & {
   __typename?: "SavedPokemon";
+  /** Saved Pokemon id. */
   id: Scalars["ID"];
+  /** Saved Pokemon details. */
   pokemonDetails?: Maybe<SchemaPokemon>;
 };
