@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "graphql-schema-linter.config.js",
+        "jest.config.js"
+    ]
+}

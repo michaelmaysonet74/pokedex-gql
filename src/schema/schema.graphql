@@ -1,0 +1,62 @@
+enum PokemonType {
+  bug
+  dark
+  dragon
+  electric
+  fairy
+  fighting
+  fire
+  flying
+  ghost
+  grass
+  ground
+  ice
+  normal
+  poison
+  psychic
+  rock
+  steel
+  water
+}
+
+input PokemonToSave {
+    id: ID!
+    name: String!
+}
+
+input PokemonToDelete {
+    id: ID!
+}
+
+type DeletedPokemon {
+    id: ID!
+}
+
+type PokemonDimension {
+    height: String
+    weight: String
+}
+
+type Pokemon {
+    id: ID!
+    name: String
+    moves: [String]
+    types: [PokemonType]
+    abilities: [String]
+    dimensions: PokemonDimension
+}
+
+type SavedPokemon {
+    id: ID!
+    pokemonDetails: Pokemon
+}
+
+type Mutation {
+    savePokemons(pokemonsToSave: [PokemonToSave!]!): [SavedPokemon]
+    deletePokemons(pokemonsToDelete: [PokemonToDelete!]!): [DeletedPokemon]
+}
+
+type Query {
+    pokemonById(id: ID!): Pokemon
+    savedPokemons: [SavedPokemon]
+}

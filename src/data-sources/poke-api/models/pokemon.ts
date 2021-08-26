@@ -1,0 +1,27 @@
+export interface PokemonMove {
+  move: {
+    name: string;
+  };
+}
+
+export interface PokemonType {
+  type: {
+    name: string;
+  };
+}
+
+export interface PokemonAbility {
+  ability: {
+    name: string;
+  };
+}
+
+export interface Pokemon {
+  id: number;
+  name: string;
+  moves: PokemonMove[];
+  types: PokemonType[];
+  abilities: PokemonAbility[];
+  height: number;
+  weight: number;
+}
