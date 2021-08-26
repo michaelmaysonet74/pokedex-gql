@@ -1,17 +1,17 @@
-import { SchemaPokemonDimension } from "../../schema-types";
+import { SchemaPokemonDimensions } from "../../schema-types";
 import { getHeight } from "./height";
 import { getWeight } from "./weight";
 
-export interface MetaPokemonDimension extends SchemaPokemonDimension {
+export interface MetaPokemonDimensions extends SchemaPokemonDimensions {
   _meta?: {
-    height: number;
-    weight: number;
+    height?: number;
+    weight?: number;
   };
 }
 
-const PokemonDimensionResolver = {
+const PokemonDimensionsResolver = {
   height: getHeight,
   weight: getWeight,
 };
 
-export default PokemonDimensionResolver;
+export default PokemonDimensionsResolver;

@@ -32,7 +32,7 @@ type DeletedPokemon {
     id: ID!
 }
 
-type PokemonDimension {
+type PokemonDimensions {
     height: String
     weight: String
 }
@@ -43,7 +43,7 @@ type Pokemon {
     moves: [String]
     types: [PokemonType]
     abilities: [String]
-    dimensions: PokemonDimension
+    dimensions: PokemonDimensions
 }
 
 type SavedPokemon {

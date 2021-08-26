@@ -1,6 +1,6 @@
 /* Objects */
 import Pokemon from "./pokemon";
-import PokemonDimension from "./pokemon-dimension";
+import PokemonDimensions from "./pokemon-dimension";
 import SavedPokemon from "./saved-pokemon";
 
 /* Root */
@@ -10,7 +10,7 @@ import Query from "./query";
 export const resolvers = {
   /* Objects */
   Pokemon,
-  PokemonDimension,
+  PokemonDimensions,
   SavedPokemon,
 
   /* Root */

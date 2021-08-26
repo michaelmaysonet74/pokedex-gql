@@ -37,11 +37,11 @@ export type SchemaPokemon = {
   moves?: Maybe<Array<Maybe<Scalars["String"]>>>;
   types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
   abilities?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  dimensions?: Maybe<SchemaPokemonDimension>;
+  dimensions?: Maybe<SchemaPokemonDimensions>;
 };
 
-export type SchemaPokemonDimension = {
-  __typename?: "PokemonDimension";
+export type SchemaPokemonDimensions = {
+  __typename?: "PokemonDimensions";
   height?: Maybe<Scalars["String"]>;
   weight?: Maybe<Scalars["String"]>;
 };
