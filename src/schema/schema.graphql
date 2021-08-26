@@ -42,7 +42,7 @@ input PokemonToSave {
 }
 
 """
-Represents a pokemon record to be delted.
+Represents a pokemon record to be deleted.
 """
 input PokemonToDelete {
     "Pokemon id of record that is meant to be deleted."
