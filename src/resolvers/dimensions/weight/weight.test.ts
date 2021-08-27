@@ -1,13 +1,13 @@
 import { getWeight } from ".";
-import { MetaPokemonDimensions } from "..";
+import { MetaDimensions } from "..";
 
-const baseParent: MetaPokemonDimensions = {
+const baseParent: MetaDimensions = {
   _meta: {
     weight: 3,
   },
 };
 
-describe("PokemonDimension.weight", () => {
+describe("Dimension.weight", () => {
   it("should return weight as a string", () => {
     const expectedResult = baseParent?._meta?.weight?.toString();
     const result = getWeight(baseParent);

@@ -1,8 +1,8 @@
-import { SchemaPokemonDimensions } from "../../schema-types";
+import { SchemaDimensions } from "../../schema-types";
 import { getHeight } from "./height";
 import { getWeight } from "./weight";
 
-export interface MetaPokemonDimensions extends SchemaPokemonDimensions {
+export interface MetaDimensions extends SchemaDimensions {
   _meta?: {
     height?: number;
     weight?: number;

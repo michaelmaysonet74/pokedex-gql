@@ -1,13 +1,13 @@
 import { getHeight } from ".";
-import { MetaPokemonDimensions } from "..";
+import { MetaDimensions } from "..";
 
-const baseParent: MetaPokemonDimensions = {
+const baseParent: MetaDimensions = {
   _meta: {
     height: 2,
   },
 };
 
-describe("PokemonDimension.height", () => {
+describe("Dimension.height", () => {
   it("should return height as a string", () => {
     const expectedResult = baseParent?._meta?.height?.toString();
     const result = getHeight(baseParent);
