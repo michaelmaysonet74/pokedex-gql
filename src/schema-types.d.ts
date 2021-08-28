@@ -58,6 +58,8 @@ export type SchemaPokemon = {
   abilities?: Maybe<Array<Maybe<Scalars["String"]>>>;
   /** Pokemon dimensions */
   dimensions?: Maybe<SchemaDimensions>;
+  /** Determines if pokemon only have one type or not. */
+  isMonoType?: Maybe<Scalars["Boolean"]>;
 };
 
 /** Represents a Pokemon Record. */

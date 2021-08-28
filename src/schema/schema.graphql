@@ -90,8 +90,8 @@ type Pokemon {
     "Pokemon dimensions"
     dimensions: Dimensions
 
-    # "Determines if pokemon only have one type or not."
-    # isMonoType: Boolean
+    "Determines if pokemon only have one type or not."
+    isMonoType: Boolean
 }
 
 """
