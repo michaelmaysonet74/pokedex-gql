@@ -19,19 +19,17 @@ $ npm i
 $ npm run dev
 ```
 
-### Run All Unit Tests
+### Unit Tests
 
 ```bash
+# Run All Unit Tests
 $ npm test
-```
 
-### Run Specific Unit Test
-
-```bash
+# Run Specific Unit Test
 $ npm run jest <path of test>
 ```
 
-### Re-generate Schema Types
+### Generate Schema Types
 
 ```bash
 $ npm run generate
