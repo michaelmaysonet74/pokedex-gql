@@ -8,8 +8,8 @@ A Pokemon GraphQL API PoC
 
 ### Pre-requisites
 
-- node >= 14.0.0
-- npm >= 6.14.0
+- node >= 16
+- npm >= 7.20.x
 
 ### Local Development
 
