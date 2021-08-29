@@ -1,6 +1,6 @@
 # pokemon-graphql
 
-A Pokemon GraphQL API PoC
+Pokemon GraphQL API PoC
 
 ![](https://lucid.app/publicSegments/view/63733272-b1b3-419f-a6af-5c3bae40facc/image.jpeg)
 
