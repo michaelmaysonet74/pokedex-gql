@@ -18,7 +18,7 @@ export type SchemaDeletedPokemon = SchemaPokemonRecord & {
   id: Scalars["ID"];
 };
 
-/** Represents the measurements of a given entity. */
+/** Represents the measurement of a given entity. */
 export type SchemaMeasurement = {
   __typename?: "Measurement";
   /** Entity's height */
@@ -56,8 +56,8 @@ export type SchemaPokemon = {
   types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
   /** List of abilieties given Pokemon can have. */
   abilities?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  /** Pokemon's measurements */
-  measurements?: Maybe<SchemaMeasurement>;
+  /** Pokemon's measurement */
+  measurement?: Maybe<SchemaMeasurement>;
   /** Determines if pokemon only have one type or not. */
   isMonoType?: Maybe<Scalars["Boolean"]>;
 };
