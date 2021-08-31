@@ -1,13 +1,13 @@
 import { getHeight } from ".";
-import { MetaDimensions } from "..";
+import { MetaMeasurement } from "..";
 
-const baseParent: MetaDimensions = {
+const baseParent: MetaMeasurement = {
   _meta: {
     height: 2,
   },
 };
 
-describe("Dimension.height", () => {
+describe("Measurement.height", () => {
   it("should return height as a string", () => {
     const expectedResult = baseParent?._meta?.height?.toString();
     const result = getHeight(baseParent);

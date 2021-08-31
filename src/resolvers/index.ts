@@ -1,5 +1,5 @@
 /* Objects */
-import Dimensions from "./dimensions";
+import Measurement from "./measurement";
 import Pokemon from "./pokemon";
 import SavedPokemon from "./saved-pokemon";
 
@@ -9,7 +9,7 @@ import Query from "./query";
 
 export const resolvers = {
   /* Objects */
-  Dimensions,
+  Measurement,
   Pokemon,
   SavedPokemon,
 

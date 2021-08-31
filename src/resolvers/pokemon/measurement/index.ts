@@ -1,7 +1,7 @@
 import { MetaPokemon } from "..";
-import { MetaDimensions } from "../../dimensions";
+import { MetaMeasurement } from "../../measurement";
 
-export const getDimensions = (parent: MetaPokemon): MetaDimensions => {
+export const getMeasurement = (parent: MetaPokemon): MetaMeasurement => {
   const { height, weight } = parent?._meta?.pokemonDetails ?? {};
   return {
     _meta: {

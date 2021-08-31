@@ -1,13 +1,13 @@
 import { getWeight } from ".";
-import { MetaDimensions } from "..";
+import { MetaMeasurement } from "..";
 
-const baseParent: MetaDimensions = {
+const baseParent: MetaMeasurement = {
   _meta: {
     weight: 3,
   },
 };
 
-describe("Dimension.weight", () => {
+describe("Measurement.weight", () => {
   it("should return weight as a string", () => {
     const expectedResult = baseParent?._meta?.weight?.toString();
     const result = getWeight(baseParent);

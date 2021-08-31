@@ -58,9 +58,9 @@ type DeletedPokemon implements PokemonRecord {
 }
 
 """
-Represents the dimensions of a given entity.
+Represents the measurement of a given entity.
 """
-type Dimensions {
+type Measurement {
     "Entity's height"
     height: String
 
@@ -87,8 +87,8 @@ type Pokemon {
     "List of abilieties given Pokemon can have."
     abilities: [String]
 
-    "Pokemon dimensions"
-    dimensions: Dimensions
+    "Pokemon's measurement"
+    measurement: Measurement
 
     "Determines if pokemon only have one type or not."
     isMonoType: Boolean
