@@ -9,7 +9,7 @@ const baseParent: MetaMeasurement = {
 
 describe("Measurement.weight", () => {
   it("should return weight as a string", () => {
-    const expectedResult = baseParent?._meta?.weight?.toString();
+    const expectedResult = "3 lbs.";
     const result = getWeight(baseParent);
     expect(result).toBe(expectedResult);
   });
