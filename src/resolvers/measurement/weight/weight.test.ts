@@ -3,13 +3,13 @@ import { MetaMeasurement } from "..";
 
 const baseParent: MetaMeasurement = {
   _meta: {
-    weight: 3,
+    weight: 90,
   },
 };
 
 describe("Measurement.weight", () => {
   it("should return weight as a string", () => {
-    const expectedResult = "3 lbs.";
+    const expectedResult = "19.8 lbs.";
     const result = getWeight(baseParent);
     expect(result).toBe(expectedResult);
   });
