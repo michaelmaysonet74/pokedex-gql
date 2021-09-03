@@ -1,7 +1,7 @@
 import { getFormattedHeight } from ".";
 
 describe("getFormattedHeight", () => {
-  it("should return fromatted height as a string", () => {
+  it("should return formatted height as a string", () => {
     const expectedResult = `20' 00"`;
     const result = getFormattedHeight({ heightInFeet: 20 });
     expect(result).toBe(expectedResult);
