@@ -22,6 +22,8 @@ export interface Pokemon {
   moves: PokemonMove[];
   types: PokemonType[];
   abilities: PokemonAbility[];
+  /* Pokemon's Height in decimeters. */
   height: number;
+  /* Pokemon's Weight in hectograms. */
   weight: number;
 }

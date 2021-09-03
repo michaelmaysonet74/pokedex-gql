@@ -9,7 +9,7 @@ const baseParent: MetaMeasurement = {
 
 describe("Measurement.height", () => {
   it("should return height as a string", () => {
-    const expectedResult = baseParent?._meta?.height?.toString();
+    const expectedResult = `0' 66"`;
     const result = getHeight(baseParent);
     expect(result).toBe(expectedResult);
   });

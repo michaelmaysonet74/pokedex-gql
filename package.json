@@ -1,7 +1,7 @@
 {
-  "name": "pokemon-graphql",
+  "name": "poke-dex",
   "version": "1.0.0",
-  "description": "Pokemon GraphQL API POC",
+  "description": "GraphQL Pokedex",
   "main": "src/server.js",
   "scripts": {
     "precompile": "mkdir -p dist/src && ncp src/schema dist/src/schema",
