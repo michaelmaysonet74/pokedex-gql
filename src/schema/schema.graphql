@@ -123,4 +123,5 @@ type Query {
 
     "Returns all the saved pokemon records with their details."
     savedPokemons: [SavedPokemon]
+        @deprecated(reason: "All pokemon storage operations will be moved to poke-pc.")
 }
