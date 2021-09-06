@@ -108,8 +108,6 @@ export type SchemaQuery = {
   __typename?: "Query";
   /** Returns the details of a pokemon by the provided id. */
   pokemonById?: Maybe<SchemaPokemon>;
-  /** Returns all the saved pokemon records with their details. */
-  savedPokemons?: Maybe<Array<Maybe<SchemaSavedPokemon>>>;
 };
 
 export type SchemaQueryPokemonByIdArgs = {
