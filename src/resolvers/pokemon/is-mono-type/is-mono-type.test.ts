@@ -1,22 +1,11 @@
 import { getIsMonoType } from ".";
 import { MetaPokemon } from "..";
-import { Pokemon } from "../../../data-sources/poke-api/models/pokemon";
-
-const baseType = {
-  type: {
-    name: "water",
-  },
-};
-
-const basePokemonDetails = {
-  name: "squirtle",
-  types: [baseType],
-} as unknown as Pokemon;
+import { fakePokemon, fakeType } from "../../../fixtures/data-sources/pokemon";
 
 const baseParent: MetaPokemon = {
   id: "7",
   _meta: {
-    pokemonDetails: basePokemonDetails,
+    pokemonDetails: fakePokemon,
   },
 };
 
@@ -28,8 +17,8 @@ describe("Pokemon.isMonoType", () => {
 
   it("should return false if _meta.pokemonDetails.types length is greater than 1", () => {
     const updatedPokemonDetails = {
-      ...basePokemonDetails,
-      types: [baseType, baseType],
+      ...fakePokemon,
+      types: [fakeType, fakeType],
     };
 
     const updatedParent = {
