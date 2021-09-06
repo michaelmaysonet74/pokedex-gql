@@ -120,8 +120,4 @@ type Mutation {
 type Query {
     "Returns the details of a pokemon by the provided id."
     pokemonById(id: ID!): Pokemon
-
-    "Returns all the saved pokemon records with their details."
-    savedPokemons: [SavedPokemon]
-        @deprecated(reason: "All pokemon storage operations will be moved to poke-pc.")
 }
