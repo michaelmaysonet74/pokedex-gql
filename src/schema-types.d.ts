@@ -18,6 +18,7 @@ export type SchemaDeletedPokemon = SchemaPokemonRecord & {
   id: Scalars["ID"];
 };
 
+/** Main line Pokemon game versions. */
 export const enum SchemaGameVersion {
   black = "black",
   blue = "blue",
@@ -41,6 +42,7 @@ export const enum SchemaGameVersion {
   yellow = "yellow",
 }
 
+/** Supported languages. */
 export const enum SchemaLanguage {
   en = "en",
   es = "es",

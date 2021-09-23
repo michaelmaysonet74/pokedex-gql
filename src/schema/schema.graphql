@@ -1,3 +1,6 @@
+"""
+Main line Pokemon game versions.
+"""
 enum GameVersion {
     black
     blue
@@ -21,6 +24,9 @@ enum GameVersion {
     yellow
 }
 
+"""
+Supported languages.
+"""
 enum Language {
     en
     es
