@@ -18,6 +18,34 @@ export type SchemaDeletedPokemon = SchemaPokemonRecord & {
   id: Scalars["ID"];
 };
 
+export const enum SchemaGameVersion {
+  black = "black",
+  blue = "blue",
+  crystal = "crystal",
+  diamond = "diamond",
+  emerald = "emerald",
+  gold = "gold",
+  moon = "moon",
+  pearl = "pearl",
+  platinum = "platinum",
+  red = "red",
+  ruby = "ruby",
+  sapphire = "sapphire",
+  shield = "shield",
+  silver = "silver",
+  sun = "sun",
+  sword = "sword",
+  white = "white",
+  x = "x",
+  y = "y",
+  yellow = "yellow",
+}
+
+export const enum SchemaLanguage {
+  en = "en",
+  es = "es",
+}
+
 /** Represents the measurement of a given entity. */
 export type SchemaMeasurement = {
   __typename?: "Measurement";
@@ -60,6 +88,14 @@ export type SchemaPokemon = {
   measurement?: Maybe<SchemaMeasurement>;
   /** Determines if pokemon only have one type or not. */
   isMonoType?: Maybe<Scalars["Boolean"]>;
+  /** Pokedex flavor text entries for this Pokemon. */
+  entry?: Maybe<Scalars["String"]>;
+};
+
+/** Represents the details of a given Pokemon. */
+export type SchemaPokemonEntryArgs = {
+  language?: Maybe<SchemaLanguage>;
+  version?: Maybe<SchemaGameVersion>;
 };
 
 /** Represents a Pokemon Record. */

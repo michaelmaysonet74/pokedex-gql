@@ -1,6 +1,6 @@
 import { RESTDataSource } from "apollo-datasource-rest";
-import DataLoader from "dataloader";
 import { Pokemon } from "./models/pokemon";
+import { PokemonSpecies } from "./models/pokemon-species";
 
 export class PokeAPI extends RESTDataSource {
   constructor() {
@@ -8,21 +8,11 @@ export class PokeAPI extends RESTDataSource {
     this.baseURL = "https://pokeapi.co/api/v2";
   }
 
-  private async getMultiplePokemonById(ids: string[]): Promise<Pokemon[]> {
-    return Promise.all(ids.map((id) => this.get(`/pokemon/${id}`)));
+  async getPokemonById(id: string): Promise<Pokemon> {
+    return this.get(`/pokemon/${id}`);
   }
 
-  private multiplePokemonByIdLoader = new DataLoader(
-    async (ids: readonly string[]) => {
-      const pokemons = await this.getMultiplePokemonById(ids.map((_) => _));
-
-      return ids.map((id: string) =>
-        pokemons.find((pokemon: Pokemon) => pokemon.id.toString() === id)
-      );
-    }
-  );
-
-  async getPokemonById(id: string): Promise<Pokemon | undefined> {
-    return this.multiplePokemonByIdLoader.load(id);
+  async getPokemonSpeciesById(id: string): Promise<PokemonSpecies> {
+    return this.get(`/pokemon-species/${id}`);
   }
 }
