@@ -1,26 +1,61 @@
 """
+Main line Pokemon game versions.
+"""
+enum GameVersion {
+    black
+    blue
+    crystal
+    diamond
+    emerald
+    gold
+    moon
+    pearl
+    platinum
+    red
+    ruby
+    sapphire
+    shield
+    silver
+    sun
+    sword
+    white
+    x
+    y
+    yellow
+}
+
+"""
+Supported languages.
+"""
+enum Language {
+    en
+    es
+}
+
+"""
 All available Pokemon types.
 """
 enum PokemonType {
-  bug
-  dark
-  dragon
-  electric
-  fairy
-  fighting
-  fire
-  flying
-  ghost
-  grass
-  ground
-  ice
-  normal
-  poison
-  psychic
-  rock
-  steel
-  water
+    bug
+    dark
+    dragon
+    electric
+    fairy
+    fighting
+    fire
+    flying
+    ghost
+    grass
+    ground
+    ice
+    normal
+    poison
+    psychic
+    rock
+    steel
+    water
 }
+
 
 """
 Represents a Pokemon Record.
@@ -92,6 +127,12 @@ type Pokemon {
 
     "Determines if pokemon only have one type or not."
     isMonoType: Boolean
+
+    "Pokedex flavor text entries for this Pokemon."
+    entry(
+        language: Language,
+        version: GameVersion
+    ): String
 }
 
 """
