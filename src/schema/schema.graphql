@@ -150,12 +150,12 @@ type Mutation {
     "Save one or more pokemon records."
     savePokemons(
         pokemonsToSave: [PokemonToSave!]!
-    ): [SavedPokemon]
+    ): [SavedPokemon] @deprecated(reason: "This functionality will be moved to another service.")
 
     "Delete one or more pokemon records."
     deletePokemons(
         pokemonsToDelete: [PokemonToDelete!]!
-    ): [DeletedPokemon]
+    ): [DeletedPokemon] @deprecated(reason: "This functionality will be moved to another service.")
 }
 
 type Query {

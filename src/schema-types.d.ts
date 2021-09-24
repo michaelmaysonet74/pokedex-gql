@@ -59,9 +59,15 @@ export type SchemaMeasurement = {
 
 export type SchemaMutation = {
   __typename?: "Mutation";
-  /** Save one or more pokemon records. */
+  /**
+   * Save one or more pokemon records.
+   * @deprecated This functionality will be moved to another service.
+   */
   savePokemons?: Maybe<Array<Maybe<SchemaSavedPokemon>>>;
-  /** Delete one or more pokemon records. */
+  /**
+   * Delete one or more pokemon records.
+   * @deprecated This functionality will be moved to another service.
+   */
   deletePokemons?: Maybe<Array<Maybe<SchemaDeletedPokemon>>>;
 };
 
