@@ -2,7 +2,7 @@
 
 GraphQL Pokedex
 
-![](https://lucid.app/publicSegments/view/63733272-b1b3-419f-a6af-5c3bae40facc/image.jpeg)
+![](https://lucid.app/publicSegments/view/6c8b3481-36a2-4b71-b7da-4fd4efc6be11/image.png)
 
 ## Getting Started
 
