@@ -11,13 +11,6 @@ export type Scalars = {
   Float: number;
 };
 
-/** Represents a successful deletion of a pokemon record. */
-export type SchemaDeletedPokemon = SchemaPokemonRecord & {
-  __typename?: "DeletedPokemon";
-  /** Pokemon id of deleted record. */
-  id: Scalars["ID"];
-};
-
 /** Main line Pokemon game versions. */
 export const enum SchemaGameVersion {
   black = "black",
@@ -57,28 +50,6 @@ export type SchemaMeasurement = {
   weight?: Maybe<Scalars["String"]>;
 };
 
-export type SchemaMutation = {
-  __typename?: "Mutation";
-  /**
-   * Save one or more pokemon records.
-   * @deprecated This functionality will be moved to another service.
-   */
-  savePokemons?: Maybe<Array<Maybe<SchemaSavedPokemon>>>;
-  /**
-   * Delete one or more pokemon records.
-   * @deprecated This functionality will be moved to another service.
-   */
-  deletePokemons?: Maybe<Array<Maybe<SchemaDeletedPokemon>>>;
-};
-
-export type SchemaMutationSavePokemonsArgs = {
-  pokemonsToSave: Array<SchemaPokemonToSave>;
-};
-
-export type SchemaMutationDeletePokemonsArgs = {
-  pokemonsToDelete: Array<SchemaPokemonToDelete>;
-};
-
 /** Represents the details of a given Pokemon. */
 export type SchemaPokemon = {
   __typename?: "Pokemon";
@@ -104,26 +75,6 @@ export type SchemaPokemon = {
 export type SchemaPokemonEntryArgs = {
   language?: Maybe<SchemaLanguage>;
   version?: Maybe<SchemaGameVersion>;
-};
-
-/** Represents a Pokemon Record. */
-export type SchemaPokemonRecord = {
-  /** ID of Pokemon Record. */
-  id: Scalars["ID"];
-};
-
-/** Represents a pokemon record to be deleted. */
-export type SchemaPokemonToDelete = {
-  /** Pokemon id of record that is meant to be deleted. */
-  id: Scalars["ID"];
-};
-
-/** Represents a pokemon record to be saved. */
-export type SchemaPokemonToSave = {
-  /** Pokemon id of record that is meant to be saved. */
-  id: Scalars["ID"];
-  /** Pokemon name */
-  name: Scalars["String"];
 };
 
 /** All available Pokemon types. */
@@ -156,13 +107,4 @@ export type SchemaQuery = {
 
 export type SchemaQueryPokemonByIdArgs = {
   id: Scalars["ID"];
-};
-
-/** Represents a saved pokemon record with its details. */
-export type SchemaSavedPokemon = SchemaPokemonRecord & {
-  __typename?: "SavedPokemon";
-  /** Saved Pokemon id. */
-  id: Scalars["ID"];
-  /** Saved Pokemon details. */
-  pokemonDetails?: Maybe<SchemaPokemon>;
 };
