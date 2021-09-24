@@ -56,42 +56,6 @@ enum PokemonType {
     water
 }
 
-
-"""
-Represents a Pokemon Record.
-"""
-interface PokemonRecord {
-    "ID of Pokemon Record."
-    id: ID!
-}
-
-"""
-Represents a pokemon record to be saved.
-"""
-input PokemonToSave {
-    "Pokemon id of record that is meant to be saved."
-    id: ID!
-
-    "Pokemon name"
-    name: String!
-}
-
-"""
-Represents a pokemon record to be deleted.
-"""
-input PokemonToDelete {
-    "Pokemon id of record that is meant to be deleted."
-    id: ID!
-}
-
-"""
-Represents a successful deletion of a pokemon record.
-"""
-type DeletedPokemon implements PokemonRecord {
-    "Pokemon id of deleted record."
-    id: ID!
-}
-
 """
 Represents the measurement of a given entity.
 """
@@ -133,29 +97,6 @@ type Pokemon {
         language: Language,
         version: GameVersion
     ): String
-}
-
-"""
-Represents a saved pokemon record with its details.
-"""
-type SavedPokemon implements PokemonRecord {
-    "Saved Pokemon id."
-    id: ID!
-
-    "Saved Pokemon details."
-    pokemonDetails: Pokemon
-}
-
-type Mutation {
-    "Save one or more pokemon records."
-    savePokemons(
-        pokemonsToSave: [PokemonToSave!]!
-    ): [SavedPokemon] @deprecated(reason: "This functionality will be moved to another service.")
-
-    "Delete one or more pokemon records."
-    deletePokemons(
-        pokemonsToDelete: [PokemonToDelete!]!
-    ): [DeletedPokemon] @deprecated(reason: "This functionality will be moved to another service.")
 }
 
 type Query {
