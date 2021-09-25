@@ -2,6 +2,7 @@ import {
   Pokemon,
   PokemonAbility,
   PokemonMove,
+  PokemonSprites,
   PokemonType,
 } from "../../data-sources/poke-api/models/pokemon";
 
@@ -41,6 +42,11 @@ export const fakeAbility: PokemonAbility = {
   },
 };
 
+export const fakeSprites: PokemonSprites = {
+  front_default:
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+};
+
 export const fakePokemon: Pokemon = {
   id: 7,
   name: "squirtle",
@@ -49,4 +55,5 @@ export const fakePokemon: Pokemon = {
   abilities: [fakeAbility],
   height: 5,
   weight: 90,
+  sprites: fakeSprites,
 };

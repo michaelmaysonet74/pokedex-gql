@@ -97,6 +97,9 @@ type Pokemon {
         language: Language,
         version: GameVersion
     ): String
+
+    "URL of Pokemon's sprite"
+    sprite: String
 }
 
 type Query {

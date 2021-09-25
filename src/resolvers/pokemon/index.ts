@@ -7,6 +7,7 @@ import { getAbilities } from "./abilities";
 import { getMeasurement } from "./measurement";
 import { getIsMonoType } from "./is-mono-type";
 import { getEntry } from "./entry";
+import { getSprite } from "./sprite";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
@@ -22,6 +23,7 @@ const PokemonResolver = {
   measurement: getMeasurement,
   isMonoType: getIsMonoType,
   entry: getEntry,
+  sprite: getSprite,
 };
 
 export default PokemonResolver;

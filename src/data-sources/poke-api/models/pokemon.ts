@@ -16,6 +16,10 @@ export interface PokemonAbility {
   };
 }
 
+export interface PokemonSprites {
+  front_default: string;
+}
+
 export interface Pokemon {
   id: number;
   name: string;
@@ -26,4 +30,5 @@ export interface Pokemon {
   height: number;
   /* Pokemon's Weight in hectograms. */
   weight: number;
+  sprites: PokemonSprites;
 }
