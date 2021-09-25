@@ -15,7 +15,7 @@
     "lint:schema": "graphql-schema-linter",
     "generate": "graphql-codegen --config codegen.yml",
     "generate:watch": "graphql-codegen --watch src/**/*.graphql --config codegen.yml",
-    "dev": "rm -rf dist/ && concurrently \"npm run generate:watch\" \"npm run precompile\" \"npm run compile:watch\" \"nodemon --inspect --enable-source-maps dist/src/server.js\""
+    "dev": "export NODE_ENV=\"development\" && rm -rf dist/ && concurrently \"npm run generate:watch\" \"npm run precompile\" \"npm run compile:watch\" \"nodemon --inspect --enable-source-maps dist/src/server.js\""
   },
   "author": "Michael Maysonet",
   "license": "MIT",
