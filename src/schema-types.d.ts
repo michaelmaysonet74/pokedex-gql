@@ -69,6 +69,8 @@ export type SchemaPokemon = {
   isMonoType?: Maybe<Scalars["Boolean"]>;
   /** Pokedex flavor text entries for this Pokemon. */
   entry?: Maybe<Scalars["String"]>;
+  /** URL of Pokemon's sprite */
+  sprite?: Maybe<Scalars["String"]>;
 };
 
 /** Represents the details of a given Pokemon. */
