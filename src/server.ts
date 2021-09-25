@@ -5,6 +5,8 @@ import schema from "./schema";
 import { context } from "./context";
 import { dataSources } from "./data-sources";
 
+const { NODE_ENV } = process.env;
+
 const baseConfigs = {
   validationRules: [depthLimit(5)],
 };
@@ -18,5 +20,7 @@ const server = new ApolloServer({
 
 (async () => {
   const { url } = await server.listen();
-  console.log(`🚀  Server ready at ${url}`);
+  if (NODE_ENV === "development") {
+    console.log(`🚀  Server ready at ${url}`);
+  }
 })();

@@ -47,7 +47,7 @@ describe("Pokemon.entry", () => {
     expect(result).toBe(expectedResult);
   });
 
-  it("should return entry by provided language and by default version", async () => {
+  it("should return entry by provided language only", async () => {
     const expectedResult = fakeFlavorTextEntry3.flavor_text;
     const result = await getEntry(
       baseParent,
@@ -67,7 +67,7 @@ describe("Pokemon.entry", () => {
     expect(result).toBe(expectedResult);
   });
 
-  it("should return null if no entry is found", async () => {
+  it("should return null if entry is not found", async () => {
     jest
       .spyOn(basePokeApi, "getPokemonSpeciesById")
       .mockReturnValueOnce(Promise.resolve({ flavor_text_entries: [] }));
