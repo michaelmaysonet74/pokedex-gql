@@ -28,7 +28,7 @@ $ npm run dev
 $ npm test
 
 # Run Specific Unit Test
-$ npm run testOnly <path of test>
+$ npm run test:only <path of test>
 ```
 
 ### Generate Schema Types
