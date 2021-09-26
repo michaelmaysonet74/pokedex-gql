@@ -12,7 +12,7 @@ const baseParent: MetaPokemon = {
 
 describe("Pokemon.moves", () => {
   it("should return moves a list of strings", () => {
-    const expectedResult: string[] = ["Tackle", "Bite", "Water-gun", "Bubble"];
+    const expectedResult: string[] = ["Tackle", "Bite", "Water Gun", "Bubble"];
     const result = getMoves(baseParent);
     expect(result).toEqual(expectedResult);
   });
