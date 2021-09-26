@@ -8,7 +8,7 @@
     "compile": "tsc",
     "test": "npm run lint && jest src/",
     "test:coverage": "jest src/ --coverage",
-    "testOnly": "jest",
+    "test:only": "jest",
     "compile:watch": "tsc -w",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings=0 && npm run lint:schema",
     "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --fix --max-warnings=0",
