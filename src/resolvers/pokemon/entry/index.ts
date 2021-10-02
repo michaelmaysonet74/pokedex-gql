@@ -8,10 +8,12 @@ import {
 import { ResolverContext } from "../../../context/types";
 import { FlavorTextEntry } from "../../../data-sources/poke-api/models/pokemon-species";
 
+const DEFAULT_LANGUAGE = SchemaLanguage.en;
+
 const filterByLanguage =
   (filter?: Maybe<SchemaLanguage>): ((e: FlavorTextEntry) => boolean) =>
   ({ language }) =>
-    language.name === (filter ?? SchemaLanguage.en).toString();
+    language.name === (filter ?? DEFAULT_LANGUAGE).toString();
 
 const filterByVersion = (
   filter?: Maybe<SchemaGameVersion>
