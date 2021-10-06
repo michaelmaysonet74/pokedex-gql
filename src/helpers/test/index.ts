@@ -3,10 +3,11 @@ import { DataSources } from "apollo-server-core/dist/graphqlOptions";
 import schema from "../../schema";
 import { PokemonDataSources } from "../../data-sources";
 import { RequestContext } from "../../context/types";
+import { PokeAPI } from "../../data-sources/poke-api";
 
-export const testBaseURL = "https://www.test.com";
-
-export const baseDataSources = {};
+export const baseDataSources = {
+  pokeAPI: new PokeAPI(),
+};
 
 export const baseRequestContext = {};
 
