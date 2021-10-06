@@ -2,7 +2,7 @@ import { SchemaPokemon, SchemaPokemonType } from "../../schema-types";
 
 export const fakePokemonById: SchemaPokemon = {
   id: "7",
-  name: "squirtle",
+  name: "Squirtle",
   isMonoType: true,
   types: [SchemaPokemonType.water],
   abilities: ["Torrent"],

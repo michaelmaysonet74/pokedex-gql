@@ -11,7 +11,7 @@ const baseParent: MetaPokemon = {
 
 describe("Pokemon.name", () => {
   it("should return name as a string", () => {
-    const expectedResult = "squirtle";
+    const expectedResult = "Squirtle";
     const result = getName(baseParent);
     expect(result).toBe(expectedResult);
   });
