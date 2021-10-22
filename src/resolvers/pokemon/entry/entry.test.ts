@@ -16,14 +16,14 @@ const baseParent: MetaPokemon = {
   id: "7",
 };
 
-const basePokeApi = {
+const basePokeAPI = {
   getPokemonSpeciesById: jest
     .fn()
     .mockReturnValue(Promise.resolve(fakePokemonSpecies)),
 } as unknown as PokeAPI;
 
 const baseDataSources = {
-  pokeAPI: basePokeApi,
+  pokeAPI: basePokeAPI,
 } as unknown as PokemonDataSources;
 
 const baseContext = {
@@ -69,7 +69,7 @@ describe("Pokemon.entry", () => {
 
   it("should return null if entry is not found", async () => {
     jest
-      .spyOn(basePokeApi, "getPokemonSpeciesById")
+      .spyOn(basePokeAPI, "getPokemonSpeciesById")
       .mockReturnValueOnce(Promise.resolve({ flavor_text_entries: [] }));
 
     const result = await getEntry(baseParent, {}, baseContext);
