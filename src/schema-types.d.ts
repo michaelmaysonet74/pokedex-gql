@@ -11,9 +11,12 @@ export type Scalars = {
   Float: number;
 };
 
+/** Represents a Pokemon Evolution */
 export type SchemaEvolution = {
   __typename?: "Evolution";
+  /** Pokemon Evolutions's id, can match pokedex number (not always). */
   id?: Maybe<Scalars["ID"]>;
+  /** Pokemon Evolution's name */
   name?: Maybe<Scalars["String"]>;
 };
 
@@ -77,6 +80,7 @@ export type SchemaPokemon = {
   entry?: Maybe<Scalars["String"]>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
+  /** Pokemon's evolution */
   evolution?: Maybe<SchemaEvolution>;
 };
 

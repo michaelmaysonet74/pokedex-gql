@@ -16,7 +16,7 @@ export class PokeAPI extends RESTDataSource {
     return this.get(`/pokemon-species/${id}`);
   }
 
-  async getEvolutionChain(url: string): Promise<any | null> {
+  async getEvolutionChain(url: string): Promise<unknown | null> {
     return url.match("evolution-chain") ? this.get(url) : null;
   }
 }

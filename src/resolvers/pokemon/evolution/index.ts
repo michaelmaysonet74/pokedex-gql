@@ -1,5 +1,4 @@
-import { MetaPokemon } from "..";
+// import { MetaPokemon } from "..";
 import { SchemaEvolution } from "../../../schema-types";
 
-export const getEvolution = (parent: MetaPokemon): SchemaEvolution | null =>
-  null;
+export const getEvolution = (): SchemaEvolution | null => null;

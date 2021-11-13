@@ -1,9 +1,9 @@
 export interface MetaEvolution {
-  _meta?: {};
+  _meta?: null;
 }
 
 const EvolutionResolver = {
-  name: () => "",
+  name: (): string => "",
 };
 
 export default EvolutionResolver;

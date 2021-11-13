@@ -57,12 +57,13 @@ enum PokemonType {
 }
 
 """
+Represents a Pokemon Evolution
 """
 type Evolution {
-  ""
+  "Pokemon Evolutions's id, can match pokedex number (not always)."
   id: ID
 
-  ""
+  "Pokemon Evolution's name"
   name: String
 }
 
@@ -111,7 +112,7 @@ type Pokemon {
     "URL of Pokemon's sprite"
     sprite: String
 
-    ""
+    "Pokemon's evolution"
     evolution: Evolution
 }
 
