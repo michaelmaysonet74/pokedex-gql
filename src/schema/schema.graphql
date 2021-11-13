@@ -57,6 +57,16 @@ enum PokemonType {
 }
 
 """
+"""
+type Evolution {
+  ""
+  id: ID
+
+  ""
+  name: String
+}
+
+"""
 Represents the measurement of a given entity.
 """
 type Measurement {
@@ -100,6 +110,9 @@ type Pokemon {
 
     "URL of Pokemon's sprite"
     sprite: String
+
+    ""
+    evolution: Evolution
 }
 
 type Query {

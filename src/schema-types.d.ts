@@ -11,6 +11,12 @@ export type Scalars = {
   Float: number;
 };
 
+export type SchemaEvolution = {
+  __typename?: "Evolution";
+  id?: Maybe<Scalars["ID"]>;
+  name?: Maybe<Scalars["String"]>;
+};
+
 /** Main line Pokemon game versions. */
 export const enum SchemaGameVersion {
   black = "black",
@@ -71,6 +77,7 @@ export type SchemaPokemon = {
   entry?: Maybe<Scalars["String"]>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
+  evolution?: Maybe<SchemaEvolution>;
 };
 
 /** Represents the details of a given Pokemon. */
