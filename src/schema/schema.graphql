@@ -59,12 +59,31 @@ enum PokemonType {
 """
 Represents a Pokemon Evolution
 """
-type Evolution {
-  "Pokemon Evolutions's id, can match pokedex number (not always)."
-  id: ID
+interface Evolution {
+   "Pokemon's id, can match pokedex number (not always)."
+    id: ID
 
-  "Pokemon Evolution's name"
-  name: String
+    "Pokemon's name"
+    name: String 
+}
+
+"""
+Represents a Pokemon which it evolves from.
+"""
+type EvolutionFrom implements Evolution {
+    "Pokemon's id, can match pokedex number (not always)."
+    id: ID
+
+    "Pokemon's name"
+    name: String
+}
+
+"""
+Represents a Pokemon Evolution chain.
+"""
+type EvolutionChain {
+    "Represents a Pokemon which it evolves from in the chain."
+    from: EvolutionFrom
 }
 
 """
@@ -112,8 +131,8 @@ type Pokemon {
     "URL of Pokemon's sprite"
     sprite: String
 
-    "Pokemon's evolution"
-    evolution: Evolution
+    "Pokemon's evolution chain"
+    evolution: EvolutionChain
 }
 
 type Query {

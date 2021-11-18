@@ -1,27 +1,9 @@
 import { MetaPokemon } from "..";
-import { SchemaEvolution } from "../../../schema-types";
-import { ResolverContext } from "../../../context/types";
-import { PokemonEvolution } from "../../../data-sources/poke-api/models/pokemon-evolution";
+import { SchemaEvolutionChain } from "../../../schema-types";
 
-export const getEvolution = async (
-  { id }: MetaPokemon,
-  _: null,
-  { dataSources: { pokeAPI } }: ResolverContext
-): Promise<SchemaEvolution | null> => {
-  const { evolution_chain } = (await pokeAPI.getPokemonSpeciesById(id)) ?? {};
-  const { url } = evolution_chain ?? {};
-
-  if (!url) {
-    return null;
-  }
-
-  const pokemonEvolution: PokemonEvolution | null =
-    await pokeAPI.getPokemonEvolution(url);
-
-  const { evolution_details } = pokemonEvolution?.chain?.evolves_to ?? {};
-  return {
+export const getEvolution = ({ id }: MetaPokemon): SchemaEvolutionChain =>
+  ({
     _meta: {
-      evolutionDetails: evolution_details,
+      pokemonId: id,
     },
-  } as SchemaEvolution;
-};
+  } as SchemaEvolutionChain);

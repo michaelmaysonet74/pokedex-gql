@@ -13,10 +13,24 @@ export type Scalars = {
 
 /** Represents a Pokemon Evolution */
 export type SchemaEvolution = {
-  __typename?: "Evolution";
-  /** Pokemon Evolutions's id, can match pokedex number (not always). */
+  /** Pokemon's id, can match pokedex number (not always). */
   id?: Maybe<Scalars["ID"]>;
-  /** Pokemon Evolution's name */
+  /** Pokemon's name */
+  name?: Maybe<Scalars["String"]>;
+};
+
+/** Represents a Pokemon Evolution chain. */
+export type SchemaEvolutionChain = {
+  __typename?: "EvolutionChain";
+  from?: Maybe<SchemaEvolutionFrom>;
+};
+
+/** Represents a Pokemon which it evolves from. */
+export type SchemaEvolutionFrom = SchemaEvolution & {
+  __typename?: "EvolutionFrom";
+  /** Pokemon's id, can match pokedex number (not always). */
+  id?: Maybe<Scalars["ID"]>;
+  /** Pokemon's name */
   name?: Maybe<Scalars["String"]>;
 };
 
@@ -80,8 +94,8 @@ export type SchemaPokemon = {
   entry?: Maybe<Scalars["String"]>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
-  /** Pokemon's evolution */
-  evolution?: Maybe<SchemaEvolution>;
+  /** Pokemon's evolution chain */
+  evolution?: Maybe<SchemaEvolutionChain>;
 };
 
 /** Represents the details of a given Pokemon. */

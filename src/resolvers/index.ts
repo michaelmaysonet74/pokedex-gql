@@ -1,5 +1,6 @@
 /* Objects */
-import Evolution from "./evolution";
+import EvolutionFrom from "./evolution-from";
+import EvolutionChain from "./evolution-chain";
 import Measurement from "./measurement";
 import Pokemon from "./pokemon";
 
@@ -8,7 +9,8 @@ import Query from "./query";
 
 export const resolvers = {
   /* Objects */
-  Evolution,
+  EvolutionFrom,
+  EvolutionChain,
   Measurement,
   Pokemon,
 
