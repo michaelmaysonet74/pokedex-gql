@@ -22,6 +22,7 @@ export type SchemaEvolution = {
 /** Represents a Pokemon Evolution chain. */
 export type SchemaEvolutionChain = {
   __typename?: "EvolutionChain";
+  /** Represents a Pokemon which it evolves from in the chain. */
   from?: Maybe<SchemaEvolutionFrom>;
 };
 
