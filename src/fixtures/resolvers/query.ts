@@ -15,4 +15,7 @@ export const fakePokemonById: SchemaPokemon = {
     "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",
   sprite:
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+  evolution: {
+    from: null,
+  },
 };

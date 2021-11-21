@@ -12,6 +12,12 @@ export interface FlavorTextEntry {
   version: GameVersion;
 }
 
+export interface EvolutionFrom {
+  name?: string | null;
+  url?: string | null;
+}
+
 export interface PokemonSpecies {
   flavor_text_entries: FlavorTextEntry[];
+  evolves_from_species?: EvolutionFrom;
 }

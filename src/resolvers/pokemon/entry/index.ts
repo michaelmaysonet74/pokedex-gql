@@ -25,7 +25,8 @@ export const getEntry = async (
   { language: maybeLanguage, version: maybeVersion }: SchemaPokemonEntryArgs,
   { dataSources: { pokeAPI } }: ResolverContext
 ): Promise<string | null> => {
-  const { flavor_text_entries } = await pokeAPI.getPokemonSpeciesById(id);
+  const { flavor_text_entries = [] } =
+    (await pokeAPI.getPokemonSpeciesById(id)) ?? {};
 
   const byLanguage = filterByLanguage(maybeLanguage);
   const byVersion = filterByVersion(maybeVersion);

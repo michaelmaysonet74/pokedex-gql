@@ -11,6 +11,30 @@ export type Scalars = {
   Float: number;
 };
 
+/** Represents a Pokemon Evolution */
+export type SchemaEvolution = {
+  /** Pokemon's id, can match pokedex number (not always). */
+  id?: Maybe<Scalars["ID"]>;
+  /** Pokemon's name */
+  name?: Maybe<Scalars["String"]>;
+};
+
+/** Represents a Pokemon Evolution chain. */
+export type SchemaEvolutionChain = {
+  __typename?: "EvolutionChain";
+  /** Represents a Pokemon which it evolves from in the chain. */
+  from?: Maybe<SchemaEvolutionFrom>;
+};
+
+/** Represents a Pokemon which it evolves from. */
+export type SchemaEvolutionFrom = SchemaEvolution & {
+  __typename?: "EvolutionFrom";
+  /** Pokemon's id, can match pokedex number (not always). */
+  id?: Maybe<Scalars["ID"]>;
+  /** Pokemon's name */
+  name?: Maybe<Scalars["String"]>;
+};
+
 /** Main line Pokemon game versions. */
 export const enum SchemaGameVersion {
   black = "black",
@@ -71,6 +95,8 @@ export type SchemaPokemon = {
   entry?: Maybe<Scalars["String"]>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
+  /** Pokemon's evolution chain */
+  evolution?: Maybe<SchemaEvolutionChain>;
 };
 
 /** Represents the details of a given Pokemon. */
