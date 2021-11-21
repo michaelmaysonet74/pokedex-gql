@@ -3,6 +3,7 @@ import {
   FlavorTextEntry,
   EntryLanguage,
   GameVersion,
+  EvolutionFrom,
 } from "../../data-sources/poke-api/models/pokemon-species";
 
 export const fakeGameVersion: GameVersion = {
@@ -49,6 +50,11 @@ export const fakeFlavorTextEntry4: FlavorTextEntry = {
   version: fakeGameVersion2,
 };
 
+export const fakeEvolvesFromSpecies: EvolutionFrom = {
+  name: "squirtle",
+  url: "http://www.test.com/7",
+};
+
 export const fakePokemonSpecies: PokemonSpecies = {
   flavor_text_entries: [
     fakeFlavorTextEntry,
@@ -56,4 +62,9 @@ export const fakePokemonSpecies: PokemonSpecies = {
     fakeFlavorTextEntry3,
     fakeFlavorTextEntry4,
   ],
+};
+
+export const fakePokemonSpecies2: PokemonSpecies = {
+  flavor_text_entries: [],
+  evolves_from_species: fakeEvolvesFromSpecies,
 };

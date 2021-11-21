@@ -19,6 +19,12 @@ const GET_POKEMON_BY_ID = gql`
       }
       entry
       sprite
+      evolution {
+        from {
+          id
+          name
+        }
+      }
     }
   }
 `;
@@ -29,11 +35,11 @@ describe("Query.pokemonById", () => {
   beforeAll(() => {
     jest
       .spyOn(baseDataSources.pokeAPI, "getPokemonById")
-      .mockReturnValue(Promise.resolve(fakePokemon));
+      .mockResolvedValue(fakePokemon);
 
     jest
       .spyOn(baseDataSources.pokeAPI, "getPokemonSpeciesById")
-      .mockReturnValue(Promise.resolve(fakePokemonSpecies));
+      .mockResolvedValue(fakePokemonSpecies);
   });
 
   it("should return Pokemon by ID", async () => {
