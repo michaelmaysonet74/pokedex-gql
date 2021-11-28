@@ -19,3 +19,25 @@ export const fakePokemonById: SchemaPokemon = {
     from: null,
   },
 };
+
+export const fakePokemonByName: SchemaPokemon = {
+  id: "8",
+  name: "Wartortle",
+  isMonoType: true,
+  types: [SchemaPokemonType.water],
+  abilities: ["Torrent"],
+  moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
+  measurement: {
+    height: "3' 28\"",
+    weight: "49.6 lbs.",
+  },
+  entry: null,
+  sprite:
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+  evolution: {
+    from: {
+      id: "7",
+      name: "Squirtle",
+    },
+  },
+};

@@ -1,4 +1,5 @@
 export * from "./capitalized";
+export * from "./constructed-kebab";
 export * from "./deconstructed-kebab";
 export * from "./formatted-height";
 export * from "./height-in-feet";
