@@ -9,8 +9,16 @@ export class PokeAPI extends RESTDataSource {
     this.baseURL = "https://pokeapi.co/api/v2";
   }
 
+  private async getPokemonBy(filter: string): Promise<Pokemon> {
+    return this.get(`/pokemon/${filter}`);
+  }
+
   async getPokemonById(id: string): Promise<Pokemon> {
-    return this.get(`/pokemon/${id}`);
+    return this.getPokemonBy(id);
+  }
+
+  async getPokemonByName(name: string): Promise<Pokemon> {
+    return this.getPokemonBy(name);
   }
 
   private async _getPokemonSpeciesById(id: string): Promise<PokemonSpecies> {

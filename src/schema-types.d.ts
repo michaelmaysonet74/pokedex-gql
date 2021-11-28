@@ -131,8 +131,14 @@ export type SchemaQuery = {
   __typename?: "Query";
   /** Returns the details of a pokemon by the provided id. */
   pokemonById?: Maybe<SchemaPokemon>;
+  /** Returns the details of a pokemon by the provided name. */
+  pokemonByName?: Maybe<SchemaPokemon>;
 };
 
 export type SchemaQueryPokemonByIdArgs = {
   id: Scalars["ID"];
+};
+
+export type SchemaQueryPokemonByNameArgs = {
+  name: Scalars["String"];
 };

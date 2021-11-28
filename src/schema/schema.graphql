@@ -138,4 +138,7 @@ type Pokemon {
 type Query {
     "Returns the details of a pokemon by the provided id."
     pokemonById(id: ID!): Pokemon
+
+    "Returns the details of a pokemon by the provided name."
+    pokemonByName(name: String!): Pokemon
 }

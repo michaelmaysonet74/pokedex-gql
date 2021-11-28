@@ -47,6 +47,11 @@ export const fakeSprites: PokemonSprites = {
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
 };
 
+export const fakeSprites2: PokemonSprites = {
+  front_default:
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+};
+
 export const fakePokemon: Pokemon = {
   id: 7,
   name: "squirtle",
@@ -56,4 +61,15 @@ export const fakePokemon: Pokemon = {
   height: 5,
   weight: 90,
   sprites: fakeSprites,
+};
+
+export const fakePokemon2: Pokemon = {
+  id: 8,
+  name: "wartortle",
+  moves: [fakeMove, fakeMove2, fakeMove3, fakeMove4],
+  types: [fakeType],
+  abilities: [fakeAbility],
+  height: 10,
+  weight: 225,
+  sprites: fakeSprites2,
 };
