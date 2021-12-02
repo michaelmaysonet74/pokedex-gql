@@ -39,7 +39,6 @@ describe("EvolutionFrom.name", () => {
       },
     };
     const result = getName(updatedParent);
-    console.log(result);
     expect(result).toBeNull();
   });
 });
