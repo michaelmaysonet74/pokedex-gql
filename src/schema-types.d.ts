@@ -1,7 +1,12 @@
 export type Maybe<T> = T | null;
+export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -77,32 +82,32 @@ export type SchemaMeasurement = {
 /** Represents the details of a given Pokemon. */
 export type SchemaPokemon = {
   __typename?: "Pokemon";
-  /** Pokemon's id, can match pokedex number (not always). */
-  id: Scalars["ID"];
-  /** Pokemon's name */
-  name?: Maybe<Scalars["String"]>;
-  /** List of moves that given Pokemon can learn. */
-  moves?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  /** List of types given Pokemon has, should not be more than two. */
-  types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
   /** List of abilieties given Pokemon can have. */
   abilities?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  /** Pokemon's measurement */
-  measurement?: Maybe<SchemaMeasurement>;
-  /** Determines if pokemon only have one type or not. */
-  isMonoType?: Maybe<Scalars["Boolean"]>;
   /** Pokedex flavor text entries for this Pokemon. */
   entry?: Maybe<Scalars["String"]>;
-  /** URL of Pokemon's sprite */
-  sprite?: Maybe<Scalars["String"]>;
   /** Pokemon's evolution chain */
   evolution?: Maybe<SchemaEvolutionChain>;
+  /** Pokemon's id, can match pokedex number (not always). */
+  id: Scalars["ID"];
+  /** Determines if pokemon only have one type or not. */
+  isMonoType?: Maybe<Scalars["Boolean"]>;
+  /** Pokemon's measurement */
+  measurement?: Maybe<SchemaMeasurement>;
+  /** List of moves that given Pokemon can learn. */
+  moves?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  /** Pokemon's name */
+  name?: Maybe<Scalars["String"]>;
+  /** URL of Pokemon's sprite */
+  sprite?: Maybe<Scalars["String"]>;
+  /** List of types given Pokemon has, should not be more than two. */
+  types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
 };
 
 /** Represents the details of a given Pokemon. */
 export type SchemaPokemonEntryArgs = {
-  language?: Maybe<SchemaLanguage>;
-  version?: Maybe<SchemaGameVersion>;
+  language?: InputMaybe<SchemaLanguage>;
+  version?: InputMaybe<SchemaGameVersion>;
 };
 
 /** All available Pokemon types. */
