@@ -1,10 +1,10 @@
 import { ApolloServer } from "apollo-server-express";
 import { DataSources } from "apollo-server-core/dist/graphqlOptions";
 import helpers from "..";
-import schema from "../../schema";
 import { PokemonDataSources } from "../../data-sources";
 import { RequestContext } from "../../context/types";
 import { PokeAPI } from "../../data-sources/poke-api";
+import { typeDefs, resolvers } from "../../resolvers";
 
 export const baseDataSources = {
   pokeAPI: new PokeAPI(),
@@ -33,7 +33,8 @@ export const createTestServer = (
   } = config;
 
   return new ApolloServer({
-    schema,
+    typeDefs,
+    resolvers,
     dataSources: () => testDataSources,
     context: () => testContext,
   });
