@@ -2,6 +2,7 @@ import { getMoves } from ".";
 import { MetaPokemon } from "..";
 import { PokemonMove } from "../../../data-sources/poke-api/models/pokemon";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
+import { baseResolverContext } from "../../../helpers/test";
 
 const baseParent: MetaPokemon = {
   id: "7",
@@ -13,7 +14,7 @@ const baseParent: MetaPokemon = {
 describe("Pokemon.moves", () => {
   it("should return moves a list of strings", () => {
     const expectedResult: string[] = ["Tackle", "Bite", "Water Gun", "Bubble"];
-    const result = getMoves(baseParent);
+    const result = getMoves(baseParent, null, baseResolverContext);
     expect(result).toEqual(expectedResult);
   });
 
@@ -25,7 +26,7 @@ describe("Pokemon.moves", () => {
         pokemonDetails: undefined,
       },
     };
-    const result = getMoves(updatedParent);
+    const result = getMoves(updatedParent, null, baseResolverContext);
     expect(result).toEqual([]);
   });
 
@@ -40,7 +41,7 @@ describe("Pokemon.moves", () => {
         },
       },
     };
-    const result = getMoves(updatedParent);
+    const result = getMoves(updatedParent, null, baseResolverContext);
     expect(result).toEqual([]);
   });
 });

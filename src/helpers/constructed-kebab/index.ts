@@ -1,9 +1,8 @@
-interface GetConstructedKebabParams {
+interface ConstructedKebabParams {
   str: string;
 }
 
-export type ConstructedKebab = (p: GetConstructedKebabParams) => string;
+export type ConstructedKebab = (p: ConstructedKebabParams) => string;
 
-export const getConstructedKebab = ({
-  str,
-}: GetConstructedKebabParams): string => str.toLowerCase().replace(" ", "-");
+export const getConstructedKebab = ({ str }: ConstructedKebabParams): string =>
+  str.toLowerCase().replace(" ", "-");

@@ -1,7 +1,16 @@
 import { MetaPokemon } from "..";
-import { getTitle } from "../../../helpers";
+import { ResolverContext } from "../../../context/types";
 
-export const getMoves = (parent: MetaPokemon): string[] =>
-  parent?._meta?.pokemonDetails?.moves?.map(({ move }) =>
-    getTitle({ str: move.name })
-  ) ?? [];
+export const getMoves = (
+  parent: MetaPokemon,
+  _: null,
+  ctx: ResolverContext
+): string[] => {
+  const { moves = [] } = parent?._meta?.pokemonDetails ?? {};
+
+  const {
+    helpers: { title },
+  } = ctx;
+
+  return moves.map(({ move }) => title({ str: move.name }));
+};

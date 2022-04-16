@@ -1,11 +1,3 @@
-export * from "./capitalized";
-export * from "./constructed-kebab";
-export * from "./deconstructed-kebab";
-export * from "./formatted-height";
-export * from "./height-in-feet";
-export * from "./title";
-export * from "./weight-in-pounds";
-
 import { Capitalized, getCapitalized } from "./capitalized";
 import { ConstructedKebab, getConstructedKebab } from "./constructed-kebab";
 import {

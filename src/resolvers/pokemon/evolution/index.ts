@@ -1,9 +1,9 @@
 import { MetaPokemon } from "..";
 import { SchemaEvolutionChain } from "../../../schema-types";
 
-export const getEvolution = ({ id }: MetaPokemon): SchemaEvolutionChain =>
+export const getEvolution = (parent: MetaPokemon): SchemaEvolutionChain =>
   ({
     _meta: {
-      pokemonId: id,
+      pokemonId: parent.id,
     },
   } as SchemaEvolutionChain);

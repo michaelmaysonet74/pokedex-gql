@@ -2,6 +2,7 @@ import { getTypes } from ".";
 import { MetaPokemon } from "..";
 import { PokemonType } from "../../../data-sources/poke-api/models/pokemon";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
+import { baseResolverContext } from "../../../helpers/test";
 
 const baseParent: MetaPokemon = {
   id: "7",
@@ -13,7 +14,7 @@ const baseParent: MetaPokemon = {
 describe("Pokemon.types", () => {
   it("should return types as an array of strings", () => {
     const expectedResult = ["Water"];
-    const result = getTypes(baseParent);
+    const result = getTypes(baseParent, null, baseResolverContext);
     expect(result).toEqual(expectedResult);
   });
 
@@ -28,7 +29,7 @@ describe("Pokemon.types", () => {
         },
       },
     };
-    const result = getTypes(updatedParent);
+    const result = getTypes(updatedParent, null, baseResolverContext);
     expect(result).toEqual([]);
   });
 });
