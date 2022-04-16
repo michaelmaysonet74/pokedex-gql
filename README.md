@@ -40,12 +40,9 @@ $ npm run generate
 ### Linters
 
 ```bash
-# Lint Source Code (including the GraphQL Schema)
+# Lint Source Code
 $ npm run lint
 
 # Make the linter fix the Source Code
 $ npm run lint:fix
-
-# Lint Only the GraphQL Schema
-$ npm run lint:schema
 ```
