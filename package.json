@@ -57,10 +57,6 @@
       "pre-push": "npm test"
     }
   },
-  "graphql-inspector": {
-    "branch": "main",
-    "schema": "src/schema/schema.graphql"
-  },
   "engines": {
     "node": ">=16",
     "npm": ">=7.20.x"
