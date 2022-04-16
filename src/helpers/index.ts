@@ -6,14 +6,17 @@ export * from "./height-in-feet";
 export * from "./title";
 export * from "./weight-in-pounds";
 
-import { Capitalized } from "./capitalized";
-import { ConstructedKebab } from "./constructed-kebab";
-import { DeconstructedKebab } from "./deconstructed-kebab";
-import { FormattedHeight } from "./formatted-height";
-import { HeightInFeet } from "./height-in-feet";
-import { IdsFromUrl } from "./ids-from-url";
-import { Title } from "./title";
-import { WeightInPounds } from "./weight-in-pounds";
+import { Capitalized, getCapitalized } from "./capitalized";
+import { ConstructedKebab, getConstructedKebab } from "./constructed-kebab";
+import {
+  DeconstructedKebab,
+  getDeconstructedKebab,
+} from "./deconstructed-kebab";
+import { FormattedHeight, getFormattedHeight } from "./formatted-height";
+import { getHeightInFeet, HeightInFeet } from "./height-in-feet";
+import { getIdsFromUrl, IdsFromUrl } from "./ids-from-url";
+import { getTitle, Title } from "./title";
+import { getWeightInPounds, WeightInPounds } from "./weight-in-pounds";
 
 export interface Helpers {
   capitalized: Capitalized;
@@ -25,3 +28,14 @@ export interface Helpers {
   title: Title;
   weightInPounds: WeightInPounds;
 }
+
+export default Object.freeze({
+  capitalized: getCapitalized,
+  constructedKebab: getConstructedKebab,
+  deconstructedKebab: getDeconstructedKebab,
+  formattedHeight: getFormattedHeight,
+  heightInFeet: getHeightInFeet,
+  idsFromUrl: getIdsFromUrl,
+  title: getTitle,
+  weightInPounds: getWeightInPounds,
+}) as Helpers;

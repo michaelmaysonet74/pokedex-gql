@@ -6,9 +6,15 @@ import {
 
 export const getPokemonById = async (
   _: null,
-  { id }: SchemaQueryPokemonByIdArgs,
-  { dataSources: { pokeAPI } }: ResolverContext
+  args: SchemaQueryPokemonByIdArgs,
+  ctx: ResolverContext
 ): Promise<SchemaPokemon | null> => {
+  const { id } = args;
+
+  const {
+    dataSources: { pokeAPI },
+  } = ctx;
+
   const pokemonDetails = await pokeAPI.getPokemonById(id);
 
   return pokemonDetails?.id

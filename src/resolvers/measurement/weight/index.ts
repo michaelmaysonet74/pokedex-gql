@@ -1,9 +1,16 @@
 import { MetaMeasurement } from "..";
-import { getWeightInPounds } from "../../../helpers";
+import { ResolverContext } from "../../../context/types";
 
-export const getWeight = (parent: MetaMeasurement): string | null => {
+export const getWeight = (
+  parent: MetaMeasurement,
+  _: null,
+  ctx: ResolverContext
+): string | null => {
   const { weight } = parent?._meta ?? {};
+
+  const { weightInPounds } = ctx.helpers;
+
   return weight
-    ? `${getWeightInPounds({ weightInHectograms: weight })} lbs.`
+    ? `${weightInPounds({ weightInHectograms: weight })} lbs.`
     : null;
 };
