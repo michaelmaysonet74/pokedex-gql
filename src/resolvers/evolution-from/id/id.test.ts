@@ -1,6 +1,7 @@
 import { getId } from ".";
 import { MetaEvolutionFrom } from "..";
 import { fakeEvolvesFromSpecies } from "../../../fixtures/data-sources/pokemon-species";
+import { baseResolverContext } from "../../../helpers/test";
 
 const baseParent: MetaEvolutionFrom = {
   _meta: {
@@ -11,7 +12,7 @@ const baseParent: MetaEvolutionFrom = {
 describe("EvolutionFrom.id", () => {
   it("should return id as a string", () => {
     const expectedResult = "7";
-    const result = getId(baseParent);
+    const result = getId(baseParent, null, baseResolverContext);
     expect(result).toBe(expectedResult);
   });
 
@@ -23,7 +24,7 @@ describe("EvolutionFrom.id", () => {
         evolutionFromSpecies: undefined,
       },
     };
-    const result = getId(updatedParent);
+    const result = getId(updatedParent, null, baseResolverContext);
     expect(result).toBeNull();
   });
 
@@ -38,7 +39,7 @@ describe("EvolutionFrom.id", () => {
         },
       },
     };
-    const result = getId(updatedParent);
+    const result = getId(updatedParent, null, baseResolverContext);
     expect(result).toBeNull();
   });
 });

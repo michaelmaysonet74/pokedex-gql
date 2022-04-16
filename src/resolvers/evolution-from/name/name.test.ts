@@ -1,6 +1,7 @@
 import { getName } from ".";
 import { MetaEvolutionFrom } from "..";
 import { fakeEvolvesFromSpecies } from "../../../fixtures/data-sources/pokemon-species";
+import { baseResolverContext } from "../../../helpers/test";
 
 const baseParent: MetaEvolutionFrom = {
   _meta: {
@@ -11,7 +12,7 @@ const baseParent: MetaEvolutionFrom = {
 describe("EvolutionFrom.name", () => {
   it("should return name as a string", () => {
     const expectedResult = "Squirtle";
-    const result = getName(baseParent);
+    const result = getName(baseParent, null, baseResolverContext);
     expect(result).toBe(expectedResult);
   });
 
@@ -23,7 +24,7 @@ describe("EvolutionFrom.name", () => {
         evolutionFromSpecies: undefined,
       },
     };
-    const result = getName(updatedParent);
+    const result = getName(updatedParent, null, baseResolverContext);
     expect(result).toBeNull();
   });
 
@@ -38,7 +39,7 @@ describe("EvolutionFrom.name", () => {
         },
       },
     };
-    const result = getName(updatedParent);
+    const result = getName(updatedParent, null, baseResolverContext);
     expect(result).toBeNull();
   });
 });

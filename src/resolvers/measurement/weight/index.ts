@@ -8,7 +8,9 @@ export const getWeight = (
 ): string | null => {
   const { weight } = parent?._meta ?? {};
 
-  const { weightInPounds } = ctx.helpers;
+  const {
+    helpers: { weightInPounds },
+  } = ctx;
 
   return weight
     ? `${weightInPounds({ weightInHectograms: weight })} lbs.`

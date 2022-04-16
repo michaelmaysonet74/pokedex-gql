@@ -1,7 +1,16 @@
 import { MetaEvolutionFrom } from "..";
-import { getIdsFromUrl } from "../../../helpers/ids-from-url";
+import { ResolverContext } from "../../../context/types";
 
-export const getId = (parent: MetaEvolutionFrom): string | null => {
+export const getId = (
+  parent: MetaEvolutionFrom,
+  _: null,
+  ctx: ResolverContext
+): string | null => {
   const { url } = parent?._meta?.evolutionFromSpecies ?? {};
-  return url ? getIdsFromUrl({ url })?.[0] : null;
+
+  const {
+    helpers: { idsFromUrl },
+  } = ctx;
+
+  return url ? idsFromUrl({ url })?.[0] : null;
 };

@@ -8,7 +8,9 @@ export const getHeight = (
 ): string | null => {
   const { height } = parent?._meta ?? {};
 
-  const { formattedHeight, heightInFeet } = ctx.helpers;
+  const {
+    helpers: { formattedHeight, heightInFeet },
+  } = ctx;
 
   return height
     ? formattedHeight({
