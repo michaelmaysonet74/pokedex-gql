@@ -2,6 +2,8 @@ interface GetHeightInFeetParams {
   heightInDecimeters: number;
 }
 
+export type HeightInFeet = (p: GetHeightInFeetParams) => number;
+
 const FOOT = 0.328084;
 
 export const getHeightInFeet = ({

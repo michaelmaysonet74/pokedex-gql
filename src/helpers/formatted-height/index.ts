@@ -2,6 +2,11 @@ interface GetFormattedHeightParams {
   heightInFeet: number;
 }
 
+/**
+ * @returns `"14 inches"`
+ */
+export type FormattedHeight = (p: GetFormattedHeightParams) => string;
+
 export const getFormattedHeight = ({
   heightInFeet,
 }: GetFormattedHeightParams): string => {
