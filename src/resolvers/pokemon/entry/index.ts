@@ -21,10 +21,17 @@ const filterByVersion = (
   filter ? ({ version }) => version.name === filter.toString() : () => true;
 
 export const getEntry = async (
-  { id }: MetaPokemon,
-  { language: maybeLanguage, version: maybeVersion }: SchemaPokemonEntryArgs,
-  { dataSources: { pokeAPI } }: ResolverContext
+  parent: MetaPokemon,
+  args: SchemaPokemonEntryArgs,
+  ctx: ResolverContext
 ): Promise<string | null> => {
+  const { id } = parent;
+  const { language: maybeLanguage, version: maybeVersion } = args;
+
+  const {
+    dataSources: { pokeAPI },
+  } = ctx;
+
   const { flavor_text_entries = [] } =
     (await pokeAPI.getPokemonSpeciesById(id)) ?? {};
 

@@ -1,11 +1,20 @@
 import { MetaMeasurement } from "..";
-import { getFormattedHeight, getHeightInFeet } from "../../../helpers";
+import { ResolverContext } from "../../../context/types";
 
-export const getHeight = (parent: MetaMeasurement): string | null => {
+export const getHeight = (
+  parent: MetaMeasurement,
+  _: null,
+  ctx: ResolverContext
+): string | null => {
   const { height } = parent?._meta ?? {};
+
+  const {
+    helpers: { formattedHeight, heightInFeet },
+  } = ctx;
+
   return height
-    ? getFormattedHeight({
-        heightInFeet: getHeightInFeet({ heightInDecimeters: height }),
+    ? formattedHeight({
+        heightInFeet: heightInFeet({ heightInDecimeters: height }),
       })
     : null;
 };

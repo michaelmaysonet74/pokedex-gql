@@ -3,15 +3,21 @@ import {
   SchemaPokemon,
   SchemaQueryPokemonByNameArgs,
 } from "../../../schema-types";
-import { getConstructedKebab } from "../../../helpers";
 
 export const getPokemonByName = async (
   _: null,
-  { name }: SchemaQueryPokemonByNameArgs,
-  { dataSources: { pokeAPI } }: ResolverContext
+  args: SchemaQueryPokemonByNameArgs,
+  ctx: ResolverContext
 ): Promise<SchemaPokemon | null> => {
+  const { name } = args;
+
+  const {
+    dataSources: { pokeAPI },
+    helpers: { constructedKebab },
+  } = ctx;
+
   const pokemonDetails = await pokeAPI.getPokemonByName(
-    getConstructedKebab({ str: name })
+    constructedKebab({ str: name })
   );
 
   return pokemonDetails?.id

@@ -5,9 +5,13 @@ import { SchemaEvolutionFrom } from "../../../schema-types";
 export const getFrom = async (
   parent: MetaEvolutionChain,
   _: null,
-  { dataSources: { pokeAPI } }: ResolverContext
+  ctx: ResolverContext
 ): Promise<SchemaEvolutionFrom | null> => {
   const { pokemonId } = parent?._meta ?? {};
+
+  const {
+    dataSources: { pokeAPI },
+  } = ctx;
 
   if (!pokemonId) {
     return null;

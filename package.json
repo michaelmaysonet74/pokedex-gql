@@ -4,15 +4,14 @@
   "description": "GraphQL Pokedex",
   "main": "src/server.js",
   "scripts": {
-    "precompile": "mkdir -p dist/src && ncp src/schema dist/src/schema",
+    "precompile": "mkdir -p dist/src",
     "compile": "tsc",
     "test": "npm run lint && jest src/",
     "test:coverage": "jest src/ --coverage",
     "test:only": "jest",
     "compile:watch": "tsc -w",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings=0 && npm run lint:schema",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings=0",
     "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --fix --max-warnings=0",
-    "lint:schema": "graphql-schema-linter",
     "generate": "graphql-codegen --config codegen.yml",
     "generate:watch": "graphql-codegen --watch src/**/*.graphql --config codegen.yml",
     "dev": "export NODE_ENV=\"development\" && rm -rf dist/ && concurrently \"npm run generate:watch\" \"npm run precompile\" \"npm run compile:watch\" \"nodemon --inspect --enable-source-maps dist/src/server.js\""
@@ -42,7 +41,6 @@
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "graphql-schema-linter": "^2.0.1",
     "husky": "^4.3.0",
     "jest": "^26.6.0",
     "ncp": "^2.0.0",
@@ -56,10 +54,6 @@
       "pre-commit": "npm run lint && npm run generate",
       "pre-push": "npm test"
     }
-  },
-  "graphql-inspector": {
-    "branch": "main",
-    "schema": "src/schema/schema.graphql"
   },
   "engines": {
     "node": ">=16",

@@ -1,7 +1,9 @@
-interface GetDeconstructedKebabParams {
+interface DeconstructedKebabParams {
   kebab: string;
 }
 
+export type DeconstructedKebab = (p: DeconstructedKebabParams) => string[];
+
 export const getDeconstructedKebab = ({
   kebab,
-}: GetDeconstructedKebabParams): string[] => kebab.split("-");
+}: DeconstructedKebabParams): string[] => kebab.split("-");

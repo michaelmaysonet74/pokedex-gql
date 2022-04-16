@@ -1,7 +1,16 @@
 import { MetaPokemon } from "..";
-import { getTitle } from "../../../helpers";
+import { ResolverContext } from "../../../context/types";
 
-export const getName = (parent: MetaPokemon): string | null => {
+export const getName = (
+  parent: MetaPokemon,
+  _: null,
+  ctx: ResolverContext
+): string | null => {
   const { name } = parent?._meta?.pokemonDetails ?? {};
-  return name ? getTitle({ str: name }) : null;
+
+  const {
+    helpers: { title },
+  } = ctx;
+
+  return name ? title({ str: name }) : null;
 };

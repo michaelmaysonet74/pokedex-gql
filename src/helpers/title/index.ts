@@ -1,10 +1,16 @@
-import { getDeconstructedKebab, getCapitalized } from "..";
+import { getCapitalized } from "../capitalized";
+import { getDeconstructedKebab } from "../deconstructed-kebab";
 
-interface GetTitleParams {
+interface TitleParams {
   str: string;
 }
 
-export const getTitle = ({ str }: GetTitleParams): string =>
+/**
+ * @returns `"Water Gun"`
+ */
+export type Title = (p: TitleParams) => string;
+
+export const getTitle = ({ str }: TitleParams): string =>
   getDeconstructedKebab({ kebab: str })
     .map((_) => getCapitalized({ str: _ }))
     .join(" ");

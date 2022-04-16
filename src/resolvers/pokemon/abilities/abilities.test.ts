@@ -2,6 +2,7 @@ import { getAbilities } from ".";
 import { MetaPokemon } from "..";
 import { PokemonAbility } from "../../../data-sources/poke-api/models/pokemon";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
+import { baseResolverContext } from "../../../helpers/test";
 
 const baseParent: MetaPokemon = {
   id: "7",
@@ -13,7 +14,7 @@ const baseParent: MetaPokemon = {
 describe("Pokemon.abilities", () => {
   it("should return abilities as an array of strings", () => {
     const expectedResult = ["Torrent"];
-    const result = getAbilities(baseParent);
+    const result = getAbilities(baseParent, null, baseResolverContext);
     expect(result).toEqual(expectedResult);
   });
 
@@ -28,7 +29,7 @@ describe("Pokemon.abilities", () => {
         },
       },
     };
-    const result = getAbilities(updatedParent);
+    const result = getAbilities(updatedParent, null, baseResolverContext);
     expect(result).toEqual([]);
   });
 });

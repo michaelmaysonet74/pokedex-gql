@@ -1,7 +1,16 @@
 import { MetaEvolutionFrom } from "..";
-import { getTitle } from "../../../helpers";
+import { ResolverContext } from "../../../context/types";
 
-export const getName = (parent: MetaEvolutionFrom): string | null => {
+export const getName = (
+  parent: MetaEvolutionFrom,
+  _: null,
+  ctx: ResolverContext
+): string | null => {
   const { name } = parent?._meta?.evolutionFromSpecies ?? {};
-  return name ? getTitle({ str: name }) : null;
+
+  const {
+    helpers: { title },
+  } = ctx;
+
+  return name ? title({ str: name }) : null;
 };

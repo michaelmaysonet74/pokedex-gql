@@ -1,19 +1,21 @@
-/* Objects */
 import EvolutionFrom from "./evolution-from";
 import EvolutionChain from "./evolution-chain";
 import Measurement from "./measurement";
 import Pokemon from "./pokemon";
-
-/* Root */
 import Query from "./query";
 
-export const resolvers = {
-  /* Objects */
-  EvolutionFrom,
-  EvolutionChain,
-  Measurement,
-  Pokemon,
+export const typeDefs = [
+  EvolutionFrom.schema,
+  EvolutionChain.schema,
+  Measurement.schema,
+  Pokemon.schema,
+  Query.schema,
+];
 
-  /* Root */
-  Query,
+export const resolvers = {
+  EvolutionFrom: EvolutionFrom.resolver,
+  EvolutionChain: EvolutionChain.resolver,
+  Measurement: Measurement.resolver,
+  Pokemon: Pokemon.resolver,
+  Query: Query.resolver,
 };
