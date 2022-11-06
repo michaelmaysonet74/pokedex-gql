@@ -68,7 +68,7 @@ describe("Pokemon.entry", () => {
   it("should return null if entry is not found", async () => {
     jest
       .spyOn(basePokeAPI, "getPokemonSpeciesById")
-      .mockResolvedValueOnce({ flavor_text_entries: [] });
+      .mockResolvedValueOnce({ id: 1, flavor_text_entries: [] });
 
     const result = await getEntry(baseParent, {}, baseContext);
     expect(result).toBeNull();

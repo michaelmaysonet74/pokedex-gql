@@ -1,10 +1,8 @@
-import {
-  Pokemon,
-  PokemonAbility,
-  PokemonMove,
-  PokemonSprites,
-  PokemonType,
-} from "../../data-sources/poke-api/models/pokemon";
+import { Pokemon } from "../../data-sources/poke-api/models/pokemon";
+import { PokemonAbility } from "../../data-sources/poke-api/models/pokemon-ability";
+import { PokemonMove } from "../../data-sources/poke-api/models/pokemon-move";
+import { PokemonSprites } from "../../data-sources/poke-api/models/pokemon-sprites";
+import { PokemonType } from "../../data-sources/poke-api/models/pokemon-type";
 
 export const fakeMove: PokemonMove = {
   move: {
@@ -60,6 +58,7 @@ export const fakePokemon: Pokemon = {
   abilities: [fakeAbility],
   height: 5,
   weight: 90,
+  stats: [],
   sprites: fakeSprites,
 };
 
@@ -71,5 +70,6 @@ export const fakePokemon2: Pokemon = {
   abilities: [fakeAbility],
   height: 10,
   weight: 225,
+  stats: [],
   sprites: fakeSprites2,
 };

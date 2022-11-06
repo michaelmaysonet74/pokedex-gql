@@ -1,6 +1,6 @@
 import { getTypes } from ".";
 import { MetaPokemon } from "..";
-import { PokemonType } from "../../../data-sources/poke-api/models/pokemon";
+import { PokemonType } from "../../../data-sources/poke-api/models/pokemon-type";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
 import { baseResolverContext } from "../../../helpers/test";
 

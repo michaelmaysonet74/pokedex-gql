@@ -1,23 +1,12 @@
-export interface GameVersion {
-  name: string;
-}
+import { FlavorTextEntries } from "./flavor-text-entry";
 
-export interface EntryLanguage {
-  name: string;
-}
-
-export interface FlavorTextEntry {
-  flavor_text: string;
-  language: EntryLanguage;
-  version: GameVersion;
-}
+export type SpeciesId = string;
 
 export interface EvolutionFrom {
   name?: string | null;
   url?: string | null;
 }
 
-export interface PokemonSpecies {
-  flavor_text_entries: FlavorTextEntry[];
+export interface PokemonSpecies extends FlavorTextEntries {
   evolves_from_species?: EvolutionFrom;
 }

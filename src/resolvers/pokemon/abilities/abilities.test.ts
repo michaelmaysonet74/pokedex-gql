@@ -1,6 +1,6 @@
 import { getAbilities } from ".";
 import { MetaPokemon } from "..";
-import { PokemonAbility } from "../../../data-sources/poke-api/models/pokemon";
+import { PokemonAbility } from "../../../data-sources/poke-api/models/pokemon-ability";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
 import { baseResolverContext } from "../../../helpers/test";
 

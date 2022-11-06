@@ -6,7 +6,7 @@ import {
   SchemaPokemonEntryArgs,
 } from "../../../schema-types";
 import { ResolverContext } from "../../../context/types";
-import { FlavorTextEntry } from "../../../data-sources/poke-api/models/pokemon-species";
+import { FlavorTextEntry } from "../../../data-sources/poke-api/models/flavor-text-entry";
 
 const DEFAULT_LANGUAGE = SchemaLanguage.en;
 
