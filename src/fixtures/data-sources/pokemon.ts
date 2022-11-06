@@ -37,6 +37,7 @@ export const fakeType: PokemonType = {
 export const fakeAbility: PokemonAbility = {
   ability: {
     name: "torrent",
+    url: "https://pokeapi.co/api/v2/ability/67/",
   },
 };
 

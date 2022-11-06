@@ -1,23 +1,27 @@
 import { SchemaAbility } from "../../schema-types";
 import { gql } from "apollo-server";
-import { PokemonAbility } from "../../data-sources/poke-api/models/pokemon-ability";
+import { getName } from "./name";
+import { getEffect } from "./effect";
 
 export interface MetaAbility extends SchemaAbility {
-  _meta: {
-    ability: PokemonAbility;
+  _meta?: {
+    ability?: {
+      name: string;
+      url?: string;
+    };
   };
 }
 
 const AbilitySchema = gql`
   type Ability {
     name: String
-    description: String
+    effect(language: Language): String
   }
 `;
 
 const AbilityResolver = {
-  name: (): string => "",
-  description: (): string => "",
+  name: getName,
+  effect: getEffect,
 };
 
 export default {

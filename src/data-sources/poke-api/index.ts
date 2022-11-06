@@ -40,26 +40,26 @@ export class PokeAPI extends RESTDataSource {
     return this.pokemonSpeciesByIdLoader.load(id);
   }
 
-  private async _getPokemonAbilityTextEntryById(
+  private async getPokemonAbilityTextEntryById(
     id: AbilityId
   ): Promise<FlavorTextEntries> {
     return this.get(`/ability/${id}`);
   }
 
-  private pokemonAbilityByIdLoader = new DataLoader(
+  private pokemonAbilityEffectByIdLoader = new DataLoader(
     async (
       ids: readonly AbilityId[]
     ): Promise<(FlavorTextEntries | undefined)[]> => {
       const entries = await Promise.all(
-        ids.map((id) => this._getPokemonAbilityTextEntryById(id))
+        ids.map((id) => this.getPokemonAbilityTextEntryById(id))
       );
       return ids.map((id) => entries.find((entry) => entry.id === id));
     }
   );
 
-  async getPokemonAbilityTextEntryById(
+  async getPokemonAbilityEffectById(
     id: AbilityId
   ): Promise<FlavorTextEntries | undefined> {
-    return this.pokemonAbilityByIdLoader.load(id);
+    return this.pokemonAbilityEffectByIdLoader.load(id);
   }
 }
