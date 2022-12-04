@@ -8,7 +8,7 @@ import { FilterByLanguage, getFilterByLanguage } from "./filter-by-language";
 import { FormattedHeight, getFormattedHeight } from "./formatted-height";
 import { getHeightInFeet, HeightInFeet } from "./height-in-feet";
 import { getIdsFromUrl, IdsFromUrl } from "./ids-from-url";
-import { getSanitizeString, SanitizeString } from "./sanitize-string";
+import { sanitizeString, SanitizeString } from "./sanitize-string";
 import { getTitle, Title } from "./title";
 import { getWeightInPounds, WeightInPounds } from "./weight-in-pounds";
 
@@ -33,7 +33,7 @@ const helpers: Helpers = {
   formattedHeight: getFormattedHeight,
   heightInFeet: getHeightInFeet,
   idsFromUrl: getIdsFromUrl,
-  sanitizeString: getSanitizeString,
+  sanitizeString: sanitizeString,
   title: getTitle,
   weightInPounds: getWeightInPounds,
 };

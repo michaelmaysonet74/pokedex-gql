@@ -4,5 +4,5 @@ interface SanitizeStringParams {
 
 export type SanitizeString = (p: SanitizeStringParams) => string;
 
-export const getSanitizeString = ({ str }: SanitizeStringParams): string =>
+export const sanitizeString = ({ str }: SanitizeStringParams): string =>
   str.split("\n").join(" ").split("\f").join(" ");
