@@ -12,11 +12,16 @@ module.exports = {
   ],
   overrides: [
     {
-      files: [
-        "schema-types.d.ts",
-      ],
+      files: ["schema-types.d.ts"],
       rules: {
         "@typescript-eslint/no-explicit-any": 0,
+      },
+    },
+    // TODO: Remove after Ability.name and Ability.effect tests are completed
+    {
+      files: ["*"],
+      rules: {
+        "@typescript-eslint/no-empty-function": 0,
       },
     },
   ],

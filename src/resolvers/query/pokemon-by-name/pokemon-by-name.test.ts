@@ -11,7 +11,10 @@ const GET_POKEMON_BY_NAME = gql`
       name
       isMonoType
       types
-      abilities
+      abilities {
+        name
+        effect
+      }
       moves
       measurement {
         height

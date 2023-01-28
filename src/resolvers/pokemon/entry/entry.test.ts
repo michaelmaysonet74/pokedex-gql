@@ -3,6 +3,7 @@ import { MetaPokemon } from "..";
 import { ResolverContext } from "../../../context/types";
 import { PokemonDataSources } from "../../../data-sources";
 import { PokeAPI } from "../../../data-sources/poke-api";
+import helpers from "../../../helpers";
 import {
   fakePokemonSpecies,
   fakeFlavorTextEntry,
@@ -26,6 +27,7 @@ const baseDataSources = {
 
 const baseContext = {
   dataSources: baseDataSources,
+  helpers,
 } as unknown as ResolverContext;
 
 describe("Pokemon.entry", () => {

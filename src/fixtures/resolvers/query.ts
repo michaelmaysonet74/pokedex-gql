@@ -1,11 +1,20 @@
-import { SchemaPokemon, SchemaPokemonType } from "../../schema-types";
+import {
+  SchemaAbility,
+  SchemaPokemon,
+  SchemaPokemonType,
+} from "../../schema-types";
+
+const fakeAbility: SchemaAbility = {
+  name: "Torrent",
+  effect: "Ups WATER moves in a pinch.",
+};
 
 export const fakePokemonById: SchemaPokemon = {
   id: "7",
   name: "Squirtle",
   isMonoType: true,
   types: [SchemaPokemonType.water],
-  abilities: ["Torrent"],
+  abilities: [fakeAbility],
   moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
   measurement: {
     height: "1' 64\"",
@@ -25,7 +34,7 @@ export const fakePokemonByName: SchemaPokemon = {
   name: "Wartortle",
   isMonoType: true,
   types: [SchemaPokemonType.water],
-  abilities: ["Torrent"],
+  abilities: [fakeAbility],
   moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
   measurement: {
     height: "3' 28\"",
