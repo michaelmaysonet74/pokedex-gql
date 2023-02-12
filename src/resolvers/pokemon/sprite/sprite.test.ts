@@ -1,6 +1,6 @@
 import { getSprite } from ".";
 import { MetaPokemon } from "..";
-import { PokemonSprites } from "../../../data-sources/poke-api/models/pokemon";
+import { PokemonSprites } from "../../../data-sources/poke-api/models/pokemon-sprites";
 import {
   fakePokemon,
   fakeSprites,

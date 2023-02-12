@@ -93,7 +93,7 @@ const PokemonSchema = gql`
     types: [PokemonType]
 
     "List of abilieties given Pokemon can have."
-    abilities: [String]
+    abilities: [Ability]
 
     "Pokemon's measurement"
     measurement: Measurement

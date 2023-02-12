@@ -1,8 +1,10 @@
 import {
-  PokemonSpecies,
-  FlavorTextEntry,
-  EntryLanguage,
   GameVersion,
+  EntryLanguage,
+  FlavorTextEntry,
+} from "../../data-sources/poke-api/models/flavor-text-entry";
+import {
+  PokemonSpecies,
   EvolutionFrom,
 } from "../../data-sources/poke-api/models/pokemon-species";
 
@@ -56,6 +58,7 @@ export const fakeEvolvesFromSpecies: EvolutionFrom = {
 };
 
 export const fakePokemonSpecies: PokemonSpecies = {
+  id: 1,
   flavor_text_entries: [
     fakeFlavorTextEntry,
     fakeFlavorTextEntry2,
@@ -65,6 +68,7 @@ export const fakePokemonSpecies: PokemonSpecies = {
 };
 
 export const fakePokemonSpecies2: PokemonSpecies = {
+  id: 2,
   flavor_text_entries: [],
   evolves_from_species: fakeEvolvesFromSpecies,
 };

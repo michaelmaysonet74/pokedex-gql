@@ -3,6 +3,7 @@ import { MetaPokemon } from "..";
 import { ResolverContext } from "../../../context/types";
 import { PokemonDataSources } from "../../../data-sources";
 import { PokeAPI } from "../../../data-sources/poke-api";
+import helpers from "../../../helpers";
 import {
   fakePokemonSpecies,
   fakeFlavorTextEntry,
@@ -26,6 +27,7 @@ const baseDataSources = {
 
 const baseContext = {
   dataSources: baseDataSources,
+  helpers,
 } as unknown as ResolverContext;
 
 describe("Pokemon.entry", () => {
@@ -68,7 +70,7 @@ describe("Pokemon.entry", () => {
   it("should return null if entry is not found", async () => {
     jest
       .spyOn(basePokeAPI, "getPokemonSpeciesById")
-      .mockResolvedValueOnce({ flavor_text_entries: [] });
+      .mockResolvedValueOnce({ id: 1, flavor_text_entries: [] });
 
     const result = await getEntry(baseParent, {}, baseContext);
     expect(result).toBeNull();

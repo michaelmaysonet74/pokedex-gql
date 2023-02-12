@@ -1,16 +1,9 @@
 import { MetaPokemon } from "..";
-import { ResolverContext } from "../../../context/types";
+import { SchemaAbility } from "../../../schema-types";
 
-export const getAbilities = (
-  parent: MetaPokemon,
-  _: null,
-  ctx: ResolverContext
-): string[] => {
+export const getAbilities = (parent: MetaPokemon): SchemaAbility[] => {
   const { abilities = [] } = parent?._meta?.pokemonDetails ?? {};
-
-  const {
-    helpers: { title },
-  } = ctx;
-
-  return abilities.map(({ ability }) => title({ str: ability.name }));
+  return abilities.map(
+    ({ ability }) => ({ _meta: { ability } } as SchemaAbility)
+  );
 };

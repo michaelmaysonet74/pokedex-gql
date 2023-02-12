@@ -4,9 +4,11 @@ import {
   DeconstructedKebab,
   getDeconstructedKebab,
 } from "./deconstructed-kebab";
+import { FilterByLanguage, getFilterByLanguage } from "./filter-by-language";
 import { FormattedHeight, getFormattedHeight } from "./formatted-height";
 import { getHeightInFeet, HeightInFeet } from "./height-in-feet";
 import { getIdsFromUrl, IdsFromUrl } from "./ids-from-url";
+import { sanitizeString, SanitizeString } from "./sanitize-string";
 import { getTitle, Title } from "./title";
 import { getWeightInPounds, WeightInPounds } from "./weight-in-pounds";
 
@@ -14,20 +16,26 @@ export interface Helpers {
   capitalized: Capitalized;
   constructedKebab: ConstructedKebab;
   deconstructedKebab: DeconstructedKebab;
+  filterByLanguage: FilterByLanguage;
   formattedHeight: FormattedHeight;
   heightInFeet: HeightInFeet;
   idsFromUrl: IdsFromUrl;
+  sanitizeString: SanitizeString;
   title: Title;
   weightInPounds: WeightInPounds;
 }
 
-export default Object.freeze({
+const helpers: Helpers = {
   capitalized: getCapitalized,
   constructedKebab: getConstructedKebab,
   deconstructedKebab: getDeconstructedKebab,
+  filterByLanguage: getFilterByLanguage,
   formattedHeight: getFormattedHeight,
   heightInFeet: getHeightInFeet,
   idsFromUrl: getIdsFromUrl,
+  sanitizeString: sanitizeString,
   title: getTitle,
   weightInPounds: getWeightInPounds,
-}) as Helpers;
+};
+
+export default Object.freeze(helpers);

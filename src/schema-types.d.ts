@@ -16,6 +16,16 @@ export type Scalars = {
   Float: number;
 };
 
+export type SchemaAbility = {
+  __typename?: "Ability";
+  effect?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
+};
+
+export type SchemaAbilityEffectArgs = {
+  language?: InputMaybe<SchemaLanguage>;
+};
+
 /** Represents a Pokemon Evolution */
 export type SchemaEvolution = {
   /** Pokemon's id, can match pokedex number (not always). */
@@ -83,7 +93,7 @@ export type SchemaMeasurement = {
 export type SchemaPokemon = {
   __typename?: "Pokemon";
   /** List of abilieties given Pokemon can have. */
-  abilities?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  abilities?: Maybe<Array<Maybe<SchemaAbility>>>;
   /** Pokedex flavor text entries for this Pokemon. */
   entry?: Maybe<Scalars["String"]>;
   /** Pokemon's evolution chain */

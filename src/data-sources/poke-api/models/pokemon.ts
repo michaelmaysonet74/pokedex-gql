@@ -1,28 +1,16 @@
-export interface PokemonMove {
-  move: {
-    name: string;
-  };
-}
+import { PokemonAbility } from "./pokemon-ability";
+import { PokemonMove } from "./pokemon-move";
+import { PokemonSprites } from "./pokemon-sprites";
+import { PokemonStat } from "./pokemon-stat";
+import { PokemonType } from "./pokemon-type";
 
-export interface PokemonType {
-  type: {
-    name: string;
-  };
-}
-
-export interface PokemonAbility {
-  ability: {
-    name: string;
-  };
-}
-
-export interface PokemonSprites {
-  front_default: string;
-}
+export type PokemonId = string;
+export type PokemonName = string;
+export type PokemonNo = number;
 
 export interface Pokemon {
-  id: number;
-  name: string;
+  id: PokemonNo;
+  name: PokemonName;
   moves: PokemonMove[];
   types: PokemonType[];
   abilities: PokemonAbility[];
@@ -30,5 +18,6 @@ export interface Pokemon {
   height: number;
   /* Pokemon's Weight in hectograms. */
   weight: number;
+  stats: PokemonStat[];
   sprites: PokemonSprites;
 }

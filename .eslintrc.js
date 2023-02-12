@@ -12,9 +12,7 @@ module.exports = {
   ],
   overrides: [
     {
-      files: [
-        "schema-types.d.ts",
-      ],
+      files: ["schema-types.d.ts"],
       rules: {
         "@typescript-eslint/no-explicit-any": 0,
       },

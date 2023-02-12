@@ -1,6 +1,6 @@
 import { getMoves } from ".";
 import { MetaPokemon } from "..";
-import { PokemonMove } from "../../../data-sources/poke-api/models/pokemon";
+import { PokemonMove } from "../../../data-sources/poke-api/models/pokemon-move";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
 import { baseResolverContext } from "../../../helpers/test";
 
