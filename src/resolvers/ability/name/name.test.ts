@@ -1,7 +1,43 @@
+import { getName } from ".";
+import { MetaAbility } from "..";
+import { fakeAbility } from "../../../fixtures/data-sources/pokemon";
+import { baseResolverContext } from "../../../helpers/test";
+
+const baseParent: MetaAbility = {
+  _meta: {
+    ...fakeAbility,
+  },
+};
+
 describe("Ability.name", () => {
-  xit("should return name as a string", () => {});
+  it("should return name as a string", () => {
+    const result = getName(baseParent, null, baseResolverContext);
+    expect(result).toEqual("Torrent");
+  });
 
-  xit("should return null if _meta.ability is undefined", () => {});
+  it("should return null if _meta.ability is undefined", () => {
+    const updatedParent = {
+      ...baseParent,
+      _meta: {
+        ...baseParent._meta,
+        ability: undefined,
+      },
+    };
+    const result = getName(updatedParent, null, baseResolverContext);
+    expect(result).toBeNull();
+  });
 
-  xit("should return null if _meta.ability.name is undefined", () => {});
+  it("should return null if _meta.ability.name is undefined", () => {
+    const updatedParent = {
+      ...baseParent,
+      _meta: {
+        ...baseParent._meta,
+        ability: {
+          name: undefined as unknown as string,
+        },
+      },
+    };
+    const result = getName(updatedParent, null, baseResolverContext);
+    expect(result).toBeNull();
+  });
 });
