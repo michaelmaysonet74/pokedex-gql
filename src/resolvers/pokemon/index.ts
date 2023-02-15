@@ -22,26 +22,28 @@ const PokemonSchema = gql`
   Main line Pokemon game versions.
   """
   enum GameVersion {
-    black
-    blue
-    crystal
-    diamond
-    emerald
-    gold
-    moon
-    pearl
-    platinum
     red
+    blue
+    yellow
+    gold
+    silver
+    crystal
     ruby
     sapphire
-    shield
-    silver
-    sun
-    sword
+    emerald
+    diamond
+    pearl
+    platinum
+    black
     white
     x
     y
-    yellow
+    sun
+    moon
+    sword
+    shield
+    scarlet
+    violet
   }
 
   """
