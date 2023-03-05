@@ -7,6 +7,7 @@ import {
 const fakeAbility: SchemaAbility = {
   name: "Torrent",
   effect: "Ups WATER moves in a pinch.",
+  isHidden: false,
 };
 
 export const fakePokemonById: SchemaPokemon = {

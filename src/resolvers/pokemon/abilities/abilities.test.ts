@@ -18,6 +18,7 @@ describe("Pokemon.abilities", () => {
           ability: {
             ...fakePokemon.abilities[0].ability,
           },
+          isHidden: false,
         },
       },
     ];

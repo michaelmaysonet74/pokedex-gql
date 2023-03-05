@@ -14,6 +14,7 @@ const GET_POKEMON_BY_ID = gql`
       abilities {
         name
         effect
+        isHidden
       }
       moves
       measurement {

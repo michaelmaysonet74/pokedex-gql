@@ -39,6 +39,7 @@ export const fakeAbility: PokemonAbility = {
     name: "torrent",
     url: "https://pokeapi.co/api/v2/ability/67/",
   },
+  is_hidden: false,
 };
 
 export const fakeSprites: PokemonSprites = {

@@ -19,6 +19,7 @@ export type Scalars = {
 export type SchemaAbility = {
   __typename?: "Ability";
   effect?: Maybe<Scalars["String"]>;
+  isHidden?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
 };
 
