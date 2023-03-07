@@ -9,4 +9,4 @@ const FOOT = 0.328084;
 export const getHeightInFeet = ({
   heightInDecimeters,
 }: HeightInFeetParams): number =>
-  heightInDecimeters ? Math.round(heightInDecimeters * FOOT * 100) / 100 : 0;
+  heightInDecimeters ? Math.round(heightInDecimeters * FOOT * 10) / 10 : 0;
