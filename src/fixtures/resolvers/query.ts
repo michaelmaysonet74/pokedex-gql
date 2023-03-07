@@ -18,7 +18,7 @@ export const fakePokemonById: SchemaPokemon = {
   abilities: [fakeAbility],
   moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
   measurement: {
-    height: "1' 64\"",
+    height: "1' 06\"",
     weight: "19.8 lbs.",
   },
   entry:
@@ -38,7 +38,7 @@ export const fakePokemonByName: SchemaPokemon = {
   abilities: [fakeAbility],
   moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
   measurement: {
-    height: "3' 28\"",
+    height: "3' 03\"",
     weight: "49.6 lbs.",
   },
   entry: null,

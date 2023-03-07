@@ -2,7 +2,7 @@ import { getHeightInFeet } from ".";
 
 describe("getHeightInFeet", () => {
   it("should return height in feet from decimeters", () => {
-    const expectedResult = 24.28;
+    const expectedResult = 24.3;
     const result = getHeightInFeet({ heightInDecimeters: 74 });
     expect(result).toBe(expectedResult);
   });
