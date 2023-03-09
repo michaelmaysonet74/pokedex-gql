@@ -2,6 +2,7 @@ import { ApolloServer, ExpressContext, gql } from "apollo-server-express";
 import { createTestServer, baseDataSources } from "../../../helpers/test";
 import { fakePokemon2 } from "../../../fixtures/data-sources/pokemon";
 import { fakePokemonSpecies2 } from "../../../fixtures/data-sources/pokemon-species";
+import { fakePokemonTypeDetails } from "../../../fixtures/data-sources/pokemon-type-details";
 import { fakePokemonByName } from "../../../fixtures/resolvers/query";
 
 const GET_POKEMON_BY_NAME = gql`
@@ -29,6 +30,7 @@ const GET_POKEMON_BY_NAME = gql`
           name
         }
       }
+      weaknesses
     }
   }
 `;
@@ -44,6 +46,10 @@ describe("Query.pokemonByName", () => {
     jest
       .spyOn(baseDataSources.pokeAPI, "getPokemonSpeciesById")
       .mockResolvedValue(fakePokemonSpecies2);
+
+    jest
+      .spyOn(baseDataSources.pokeAPI, "getPokemonTypeDetailsById")
+      .mockResolvedValue(fakePokemonTypeDetails);
   });
 
   it("should return Pokemon by ID", async () => {

@@ -92,10 +92,10 @@ export type SchemaMeasurement = {
   weight?: Maybe<Scalars["String"]>;
 };
 
-/** Represents the details of a given Pokemon. */
+/** Represents the details of a Pokemon. */
 export type SchemaPokemon = {
   __typename?: "Pokemon";
-  /** List of abilieties given Pokemon can have. */
+  /** List of abilieties this Pokemon can have. */
   abilities?: Maybe<Array<Maybe<SchemaAbility>>>;
   /** Pokedex flavor text entries for this Pokemon. */
   entry?: Maybe<Scalars["String"]>;
@@ -103,21 +103,23 @@ export type SchemaPokemon = {
   evolution?: Maybe<SchemaEvolutionChain>;
   /** Pokemon's id, can match pokedex number (not always). */
   id: Scalars["ID"];
-  /** Determines if pokemon only have one type or not. */
+  /** Determines if Pokemon only have one type or not. */
   isMonoType?: Maybe<Scalars["Boolean"]>;
   /** Pokemon's measurement */
   measurement?: Maybe<SchemaMeasurement>;
-  /** List of moves that given Pokemon can learn. */
+  /** List of moves that this Pokemon can learn. */
   moves?: Maybe<Array<Maybe<Scalars["String"]>>>;
   /** Pokemon's name */
   name?: Maybe<Scalars["String"]>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
-  /** List of types given Pokemon has, should not be more than two. */
+  /** List of types that this Pokemon has, should not be more than two. */
   types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
+  /** List of types that this Pokemon is weak against. */
+  weaknesses?: Maybe<Array<Maybe<SchemaPokemonType>>>;
 };
 
-/** Represents the details of a given Pokemon. */
+/** Represents the details of a Pokemon. */
 export type SchemaPokemonEntryArgs = {
   language?: InputMaybe<SchemaLanguage>;
   version?: InputMaybe<SchemaGameVersion>;

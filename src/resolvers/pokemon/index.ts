@@ -10,6 +10,7 @@ import { getEntry } from "./entry";
 import { getSprite } from "./sprite";
 import { getEvolution } from "./evolution";
 import { gql } from "apollo-server";
+import { getWeaknesses } from "./weaknesses";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
@@ -79,7 +80,7 @@ const PokemonSchema = gql`
   }
 
   """
-  Represents the details of a given Pokemon.
+  Represents the details of a Pokemon.
   """
   type Pokemon {
     "Pokemon's id, can match pokedex number (not always)."
@@ -88,19 +89,19 @@ const PokemonSchema = gql`
     "Pokemon's name"
     name: String
 
-    "List of moves that given Pokemon can learn."
+    "List of moves that this Pokemon can learn."
     moves: [String]
 
-    "List of types given Pokemon has, should not be more than two."
+    "List of types that this Pokemon has, should not be more than two."
     types: [PokemonType]
 
-    "List of abilieties given Pokemon can have."
+    "List of abilieties this Pokemon can have."
     abilities: [Ability]
 
     "Pokemon's measurement"
     measurement: Measurement
 
-    "Determines if pokemon only have one type or not."
+    "Determines if Pokemon only have one type or not."
     isMonoType: Boolean
 
     "Pokedex flavor text entries for this Pokemon."
@@ -111,6 +112,9 @@ const PokemonSchema = gql`
 
     "Pokemon's evolution chain"
     evolution: EvolutionChain
+
+    "List of types that this Pokemon is weak against."
+    weaknesses: [PokemonType]
   }
 `;
 
@@ -124,6 +128,7 @@ const PokemonResolver = {
   entry: getEntry,
   sprite: getSprite,
   evolution: getEvolution,
+  weaknesses: getWeaknesses,
 };
 
 export default {

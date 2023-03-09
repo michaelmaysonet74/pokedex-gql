@@ -28,6 +28,7 @@ export const fakePokemonById: SchemaPokemon = {
   evolution: {
     from: null,
   },
+  weaknesses: [SchemaPokemonType.grass, SchemaPokemonType.electric],
 };
 
 export const fakePokemonByName: SchemaPokemon = {
@@ -50,4 +51,5 @@ export const fakePokemonByName: SchemaPokemon = {
       name: "Squirtle",
     },
   },
+  weaknesses: [SchemaPokemonType.grass, SchemaPokemonType.electric],
 };
