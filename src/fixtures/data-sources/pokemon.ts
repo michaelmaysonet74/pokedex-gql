@@ -31,6 +31,7 @@ export const fakeMove4: PokemonMove = {
 export const fakeType: PokemonType = {
   type: {
     name: "water",
+    url: "https://pokeapi.co/api/v2/type/11",
   },
 };
 

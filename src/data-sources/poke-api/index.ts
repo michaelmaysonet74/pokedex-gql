@@ -4,6 +4,7 @@ import { FlavorTextEntries } from "./models/flavor-text-entry";
 import { Pokemon, PokemonId, PokemonName } from "./models/pokemon";
 import { AbilityId } from "./models/pokemon-ability";
 import { PokemonSpecies, SpeciesId } from "./models/pokemon-species";
+import { PokemonTypeDetails } from "./models/pokemon-type";
 
 export class PokeAPI extends RESTDataSource {
   constructor() {
@@ -61,5 +62,28 @@ export class PokeAPI extends RESTDataSource {
     id: AbilityId
   ): Promise<FlavorTextEntries | undefined> {
     return this.pokemonAbilityEffectByIdLoader.load(id);
+  }
+
+  private async _getPokemonTypeDetailsById(
+    id: string
+  ): Promise<PokemonTypeDetails> {
+    return this.get(`/type/${id}`);
+  }
+
+  private pokemonTypeDetailsByIdLoader = new DataLoader(
+    async (
+      ids: readonly string[]
+    ): Promise<(PokemonTypeDetails | undefined)[]> => {
+      const details = await Promise.all(
+        ids.map((id) => this._getPokemonTypeDetailsById(id))
+      );
+      return ids.map((id) => details.find((d) => d.id.toString() === id));
+    }
+  );
+
+  async getPokemonTypeDetailsById(
+    id: string
+  ): Promise<PokemonTypeDetails | undefined> {
+    return this.pokemonTypeDetailsByIdLoader.load(id);
   }
 }
