@@ -9,6 +9,10 @@ export const getWeaknesses = async (
 ): Promise<SchemaPokemonType[]> => {
   const { types = [] } = parent._meta?.pokemonDetails ?? {};
 
+  if (types.length === 0) {
+    return [];
+  }
+
   const {
     dataSources: { pokeAPI },
     helpers: { idsFromUrl, title },
