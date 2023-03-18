@@ -18,8 +18,6 @@ export const getWeaknesses = async (
     helpers: { idsFromUrl, title },
   } = ctx;
 
-  const pokemonTypes = types.map(({ type }) => type.name);
-
   const ids = types
     .map(({ type }) => idsFromUrl({ url: type.url })[0])
     .filter((id) => id !== undefined);
@@ -48,11 +46,21 @@ export const getWeaknesses = async (
       : []
   );
 
+  const noDamageTypes = detailedTypes.flatMap((details) =>
+    details
+      ? Array.from(
+          new Set(
+            details.damage_relations.no_damage_from.map(({ name }) => name)
+          )
+        )
+      : []
+  );
+
   const weaknesses = Array.from(
     new Set(
       doubleDamageTypes.filter(
         (type) =>
-          !pokemonTypes.includes(type) && !halfDamageTypes.includes(type)
+          !halfDamageTypes.includes(type) && !noDamageTypes.includes(type)
       )
     )
   );

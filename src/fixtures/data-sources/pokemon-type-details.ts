@@ -26,6 +26,7 @@ const fakePokemonDamageRelations: PokemonDamageRelations = {
       name: "ice",
     },
   ],
+  no_damage_from: [],
 };
 
 export const fakePokemonTypeDetails: PokemonTypeDetails = {
