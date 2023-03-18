@@ -5,6 +5,7 @@ export interface DamageFrom {
 export interface PokemonDamageRelations {
   double_damage_from: DamageFrom[];
   half_damage_from: DamageFrom[];
+  no_damage_from: DamageFrom[];
 }
 
 export interface PokemonTypeDetails {
