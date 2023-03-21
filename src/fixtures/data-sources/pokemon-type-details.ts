@@ -3,7 +3,7 @@ import {
   PokemonTypeDetails,
 } from "../../data-sources/poke-api/models/pokemon-type";
 
-const fakePokemonDamageRelations: PokemonDamageRelations = {
+export const fakePokemonDamageRelations: PokemonDamageRelations = {
   double_damage_from: [
     {
       name: "grass",
