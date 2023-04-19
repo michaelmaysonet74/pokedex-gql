@@ -27,6 +27,17 @@ export type SchemaAbilityEffectArgs = {
   language?: InputMaybe<SchemaLanguage>;
 };
 
+/** Represents the base stats of a Pokemon. */
+export type SchemaBaseStats = {
+  __typename?: "BaseStats";
+  attack: Scalars["Int"];
+  defense: Scalars["Int"];
+  hp: Scalars["Int"];
+  specialAttack: Scalars["Int"];
+  specialDefense: Scalars["Int"];
+  speed: Scalars["Int"];
+};
+
 /** Represents a Pokemon Evolution */
 export type SchemaEvolution = {
   /** Pokemon's id, can match pokedex number (not always). */
@@ -97,6 +108,8 @@ export type SchemaPokemon = {
   __typename?: "Pokemon";
   /** List of abilieties this Pokemon can have. */
   abilities?: Maybe<Array<Maybe<SchemaAbility>>>;
+  /** Pokemon's base stats */
+  baseStats?: Maybe<SchemaBaseStats>;
   /** Pokedex flavor text entries for this Pokemon. */
   entry?: Maybe<Scalars["String"]>;
   /** Pokemon's evolution chain */
