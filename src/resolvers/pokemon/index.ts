@@ -11,6 +11,7 @@ import { getSprite } from "./sprite";
 import { getEvolution } from "./evolution";
 import { gql } from "apollo-server";
 import { getWeaknesses } from "./weaknesses";
+import { getBaseStats } from "./base-stats";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
@@ -115,6 +116,9 @@ const PokemonSchema = gql`
 
     "List of types that this Pokemon is weak against."
     weaknesses: [PokemonType]
+
+    "Pokemon's base stats"
+    baseStats: BaseStats
   }
 `;
 
@@ -129,6 +133,7 @@ const PokemonResolver = {
   sprite: getSprite,
   evolution: getEvolution,
   weaknesses: getWeaknesses,
+  baseStats: getBaseStats,
 };
 
 export default {
