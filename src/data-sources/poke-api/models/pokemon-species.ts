@@ -1,4 +1,4 @@
-import { FlavorTextEntries } from "./flavor-text-entry";
+import { EntryLanguage, FlavorTextEntries } from "./flavor-text-entry";
 
 export type SpeciesId = string;
 
@@ -7,6 +7,12 @@ export interface EvolutionFrom {
   url?: string | null;
 }
 
+export interface Genra {
+  genus?: string | null;
+  language?: EntryLanguage | null;
+}
+
 export interface PokemonSpecies extends FlavorTextEntries {
   evolves_from_species?: EvolutionFrom;
+  genera?: Genra[];
 }

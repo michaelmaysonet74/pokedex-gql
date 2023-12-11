@@ -12,6 +12,7 @@ import { getEvolution } from "./evolution";
 import { gql } from "apollo-server";
 import { getWeaknesses } from "./weaknesses";
 import { getBaseStats } from "./base-stats";
+import { getCategory } from "./category";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
@@ -119,6 +120,9 @@ const PokemonSchema = gql`
 
     "Pokemon's base stats"
     baseStats: BaseStats
+
+    "Pokemon's category"
+    category(language: Language): String
   }
 `;
 
@@ -134,6 +138,7 @@ const PokemonResolver = {
   evolution: getEvolution,
   weaknesses: getWeaknesses,
   baseStats: getBaseStats,
+  category: getCategory,
 };
 
 export default {
