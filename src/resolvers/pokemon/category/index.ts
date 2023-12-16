@@ -8,17 +8,22 @@ export const getCategory = async (
   ctx: ResolverContext
 ): Promise<string | null> => {
   const { id } = parent;
-  // const { language: maybeLanguage } = args;
 
   const {
     dataSources: { pokeAPI },
-    // helpers: { filterByLanguage, sanitizeString },
+    helpers: { filterByLanguage, sanitizeString },
   } = ctx;
+
+  const { language: maybeLanguage } = args;
+  const byLanguage = filterByLanguage({ filter: maybeLanguage });
 
   const species = await pokeAPI.getPokemonSpeciesById(id);
 
-  return (
-    species?.genera?.find((_) => (_.language?.name ?? "en") === "en")?.genus ??
-    null
+  const generaByLanguage = species?.genera?.find(
+    (_) => _.language && byLanguage(_.language)
   );
+
+  const category = generaByLanguage?.genus?.replace("Pokémon", "") ?? null;
+
+  return category ? sanitizeString({ str: category }) : null;
 };
