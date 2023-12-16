@@ -13,6 +13,7 @@ const fakeAbility: SchemaAbility = {
 export const fakePokemonById: SchemaPokemon = {
   id: "7",
   name: "Squirtle",
+  category: "Tiny Turtle",
   isMonoType: true,
   types: [SchemaPokemonType.water],
   abilities: [fakeAbility],
@@ -34,6 +35,7 @@ export const fakePokemonById: SchemaPokemon = {
 export const fakePokemonByName: SchemaPokemon = {
   id: "8",
   name: "Wartortle",
+  category: "Turtle",
   isMonoType: true,
   types: [SchemaPokemonType.water],
   abilities: [fakeAbility],

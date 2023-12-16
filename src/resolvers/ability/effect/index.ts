@@ -26,7 +26,7 @@ export const getEffect = async (
       (await pokeAPI.getPokemonAbilityEffectById(parseInt(abilityId))) ?? {};
 
     const entry = flavor_text_entries
-      .filter((_) => byLanguage(_))
+      .filter((_) => byLanguage(_.language))
       .map(({ flavor_text }) => flavor_text)?.[0];
 
     return entry ? sanitizeString({ str: entry }) : null;

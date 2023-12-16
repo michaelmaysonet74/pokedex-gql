@@ -10,6 +10,7 @@ const GET_POKEMON_BY_NAME = gql`
     pokemonByName(name: $name) {
       id
       name
+      category
       isMonoType
       types
       abilities {

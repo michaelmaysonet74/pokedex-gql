@@ -22,14 +22,18 @@ const fakeFlavorTextEntries: FlavorTextEntry[] = [
 describe("getFilterByLanguage", () => {
   it("should filter by provided language", () => {
     const filterBySpanish = getFilterByLanguage({ filter: SchemaLanguage.es });
-    const result = fakeFlavorTextEntries.filter(filterBySpanish);
+    const result = fakeFlavorTextEntries.filter((_) =>
+      filterBySpanish(_.language)
+    );
     expect(result.length).toEqual(1);
     expect(result).toEqual([fakeFlavorTextEntry2]);
   });
 
   it("should filter by default language", () => {
     const filterByDefault = getFilterByLanguage({});
-    const result = fakeFlavorTextEntries.filter(filterByDefault);
+    const result = fakeFlavorTextEntries.filter((_) =>
+      filterByDefault(_.language)
+    );
     expect(result.length).toEqual(1);
     expect(result).toEqual([fakeFlavorTextEntry]);
   });

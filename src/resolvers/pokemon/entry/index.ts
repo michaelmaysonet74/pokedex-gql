@@ -32,7 +32,7 @@ export const getEntry = async (
   const byVersion = filterByVersion(maybeVersion);
 
   const entry = flavor_text_entries
-    .filter((_) => byLanguage(_) && byVersion(_))
+    .filter((_) => byLanguage(_.language) && byVersion(_))
     .map(({ flavor_text }) => flavor_text)?.[0];
 
   return entry ? sanitizeString({ str: entry }) : null;
