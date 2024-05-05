@@ -32,6 +32,15 @@ const GET_POKEMON_BY_ID = gql`
         }
       }
       weaknesses
+      baseStats {
+        hp
+        attack
+        defense
+        specialAttack
+        specialDefense
+        speed
+        total
+      }
     }
   }
 `;

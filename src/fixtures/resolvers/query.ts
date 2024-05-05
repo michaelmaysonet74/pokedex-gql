@@ -30,6 +30,15 @@ export const fakePokemonById: SchemaPokemon = {
     from: null,
   },
   weaknesses: [SchemaPokemonType.grass, SchemaPokemonType.electric],
+  baseStats: {
+    hp: 44,
+    attack: 48,
+    defense: 65,
+    specialAttack: 50,
+    specialDefense: 64,
+    speed: 43,
+    total: 314,
+  },
 };
 
 export const fakePokemonByName: SchemaPokemon = {
@@ -54,4 +63,13 @@ export const fakePokemonByName: SchemaPokemon = {
     },
   },
   weaknesses: [SchemaPokemonType.grass, SchemaPokemonType.electric],
+  baseStats: {
+    hp: 59,
+    attack: 63,
+    defense: 80,
+    specialAttack: 65,
+    specialDefense: 80,
+    speed: 58,
+    total: 405,
+  },
 };
