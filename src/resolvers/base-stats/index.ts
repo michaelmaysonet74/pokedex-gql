@@ -7,6 +7,7 @@ import { getDefense } from "./defense";
 import { getSpecialAttack } from "./special-attack";
 import { getSpecialDefense } from "./special-defense";
 import { getSpeed } from "./speed";
+import { getTotal } from "./total";
 
 export interface MetaBaseStats extends SchemaBaseStats {
   _meta?: {
@@ -36,6 +37,9 @@ const BaseStatsSchema = gql`
 
     "Pokemon's base Speed"
     speed: Int!
+
+    "Pokemon's total base stats"
+    total: Int!
   }
 `;
 
@@ -46,6 +50,7 @@ const BaseStatsResolver = {
   specialAttack: getSpecialAttack,
   specialDefense: getSpecialDefense,
   speed: getSpeed,
+  total: getTotal,
 };
 
 export default {

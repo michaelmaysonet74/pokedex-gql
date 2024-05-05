@@ -42,6 +42,8 @@ export type SchemaBaseStats = {
   specialDefense: Scalars["Int"];
   /** Pokemon's base Speed */
   speed: Scalars["Int"];
+  /** Pokemon's total base stats */
+  total: Scalars["Int"];
 };
 
 /** Represents a Pokemon Evolution */
