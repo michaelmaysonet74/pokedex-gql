@@ -82,6 +82,16 @@ const PokemonSchema = gql`
   }
 
   """
+  Represents a Pokemon's typing.
+  """
+  type PokemonTypes {
+    "Pokemon's primary type"
+    primary: PokemonType!
+    "Pokemon's secondary type. This type might be null because some Pokemon are mono type."
+    secondary: PokemonType
+  }
+
+  """
   Represents the details of a Pokemon.
   """
   type Pokemon {
@@ -94,10 +104,10 @@ const PokemonSchema = gql`
     "List of moves that this Pokemon can learn."
     moves: [String]
 
-    "List of types that this Pokemon has, should not be more than two."
-    types: [PokemonType]
+    "Types that this Pokemon has, should not be more than two."
+    types: PokemonTypes
 
-    "List of abilieties this Pokemon can have."
+    "List of abilities this Pokemon can have."
     abilities: [Ability]
 
     "Pokemon's measurement"

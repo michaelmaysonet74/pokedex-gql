@@ -15,7 +15,10 @@ export const fakePokemonById: SchemaPokemon = {
   name: "Squirtle",
   category: "Tiny Turtle",
   isMonoType: true,
-  types: [SchemaPokemonType.water],
+  types: {
+    primary: SchemaPokemonType.water,
+    secondary: null,
+  },
   abilities: [fakeAbility],
   moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
   measurement: {
@@ -46,7 +49,10 @@ export const fakePokemonByName: SchemaPokemon = {
   name: "Wartortle",
   category: "Turtle",
   isMonoType: true,
-  types: [SchemaPokemonType.water],
+  types: {
+    primary: SchemaPokemonType.water,
+    secondary: null,
+  },
   abilities: [fakeAbility],
   moves: ["Tackle", "Bite", "Water Gun", "Bubble"],
   measurement: {

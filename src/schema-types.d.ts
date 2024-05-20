@@ -114,7 +114,7 @@ export type SchemaMeasurement = {
 /** Represents the details of a Pokemon. */
 export type SchemaPokemon = {
   __typename?: "Pokemon";
-  /** List of abilieties this Pokemon can have. */
+  /** List of abilities this Pokemon can have. */
   abilities?: Maybe<Array<Maybe<SchemaAbility>>>;
   /** Pokemon's base stats */
   baseStats?: Maybe<SchemaBaseStats>;
@@ -136,8 +136,8 @@ export type SchemaPokemon = {
   name?: Maybe<Scalars["String"]>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
-  /** List of types that this Pokemon has, should not be more than two. */
-  types?: Maybe<Array<Maybe<SchemaPokemonType>>>;
+  /** Types that this Pokemon has, should not be more than two. */
+  types?: Maybe<SchemaPokemonTypes>;
   /** List of types that this Pokemon is weak against. */
   weaknesses?: Maybe<Array<Maybe<SchemaPokemonType>>>;
 };
@@ -174,6 +174,15 @@ export const enum SchemaPokemonType {
   steel = "Steel",
   water = "Water",
 }
+
+/** Represents a Pokemon's typing. */
+export type SchemaPokemonTypes = {
+  __typename?: "PokemonTypes";
+  /** Pokemon's primary type */
+  primary: SchemaPokemonType;
+  /** Pokemon's secondary type. This type might be null because some Pokemon are mono type. */
+  secondary?: Maybe<SchemaPokemonType>;
+};
 
 export type SchemaQuery = {
   __typename?: "Query";
