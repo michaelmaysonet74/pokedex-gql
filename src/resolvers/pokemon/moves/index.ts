@@ -12,5 +12,7 @@ export const getMoves = (
     helpers: { title },
   } = ctx;
 
+  moves.forEach(({ move }) => console.log(move));
+
   return moves.map(({ move }) => title({ str: move.name }));
 };
