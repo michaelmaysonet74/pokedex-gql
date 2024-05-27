@@ -16,7 +16,10 @@ query GetPokemonById {
       name
       category
       isMonoType
-      types
+      types {
+        primary
+        secondary
+      }
       abilities {
         name
         effect
@@ -29,6 +32,15 @@ query GetPokemonById {
         }
       }
       weaknesses
+      baseStats {
+        hp  
+        attack
+        defense
+        specialAttack
+        specialDefense
+        speed
+        total
+      }
     }
   }
 ```
@@ -44,10 +56,10 @@ query GetPokemonById {
             "name": "Dragonite",
             "category": "Dragon",
             "isMonoType": false,
-            "types": [
-                "Dragon",
-                "Flying"
-            ],
+            "types": {
+                "primary": "Dragon",
+                "secondary": "Flying"
+            },
             "abilities": [
                 {
                     "name": "Inner Focus",
@@ -71,7 +83,16 @@ query GetPokemonById {
                 "Dragon",
                 "Fairy",
                 "Rock"
-            ]
+            ],
+            "baseStats": {
+                "hp": 91,
+                "attack": 134,
+                "defense": 95,
+                "specialAttack": 100,
+                "specialDefense": 100,
+                "speed": 80,
+                "total": 600
+            }
         }
     }
 }

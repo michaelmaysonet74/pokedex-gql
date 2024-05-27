@@ -1,19 +1,23 @@
 import { MetaPokemon } from "..";
-import { SchemaPokemonType } from "../../../schema-types";
+import { SchemaPokemonType, SchemaPokemonTypes } from "../../../schema-types";
 import { ResolverContext } from "../../../context/types";
 
 export const getTypes = (
   parent: MetaPokemon,
   _: null,
   ctx: ResolverContext
-): SchemaPokemonType[] => {
+): SchemaPokemonTypes | null => {
   const { types = [] } = parent?._meta?.pokemonDetails ?? {};
 
   const {
     helpers: { title },
   } = ctx;
 
-  return types.map(
+  const typesAsTitle = types.map(
     ({ type }) => title({ str: type.name }) as SchemaPokemonType
   );
+
+  const [primary = null, secondary = null] = typesAsTitle;
+
+  return primary ? { primary, secondary } : null;
 };
