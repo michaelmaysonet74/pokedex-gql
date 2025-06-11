@@ -1,4 +1,4 @@
-# poke-dex-gql
+# pokedex-gql
 
 GraphQL Pokedex
 
