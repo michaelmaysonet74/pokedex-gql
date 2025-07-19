@@ -4,9 +4,11 @@ interface WeightInPoundsParams {
 
 export type WeightInPounds = (p: WeightInPoundsParams) => number;
 
-const POUND = 4.536;
+const HECTOGRAM_TO_POUND = 0.220462;
 
 export const getWeightInPounds = ({
   weightInHectograms,
 }: WeightInPoundsParams): number =>
-  weightInHectograms ? Math.round((weightInHectograms / POUND) * 10) / 10 : 0;
+  weightInHectograms
+    ? Number((weightInHectograms * HECTOGRAM_TO_POUND).toFixed(1))
+    : 0;
