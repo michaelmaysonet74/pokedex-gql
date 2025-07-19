@@ -6,7 +6,10 @@ import {
 } from "./deconstructed-kebab";
 import { FilterByLanguage, getFilterByLanguage } from "./filter-by-language";
 import { FormattedHeight, getFormattedHeight } from "./formatted-height";
-import { getHeightInFeet, HeightInFeet } from "./height-in-feet";
+import {
+  getHeightInFeetInches,
+  HeightInFeetInches,
+} from "./height-in-feet-inches";
 import { getIdsFromUrl, IdsFromUrl } from "./ids-from-url";
 import { sanitizeString, SanitizeString } from "./sanitize-string";
 import { getTitle, Title } from "./title";
@@ -18,7 +21,7 @@ export interface Helpers {
   deconstructedKebab: DeconstructedKebab;
   filterByLanguage: FilterByLanguage;
   formattedHeight: FormattedHeight;
-  heightInFeet: HeightInFeet;
+  heightInFeetInches: HeightInFeetInches;
   idsFromUrl: IdsFromUrl;
   sanitizeString: SanitizeString;
   title: Title;
@@ -31,7 +34,7 @@ const helpers: Helpers = {
   deconstructedKebab: getDeconstructedKebab,
   filterByLanguage: getFilterByLanguage,
   formattedHeight: getFormattedHeight,
-  heightInFeet: getHeightInFeet,
+  heightInFeetInches: getHeightInFeetInches,
   idsFromUrl: getIdsFromUrl,
   sanitizeString: sanitizeString,
   title: getTitle,

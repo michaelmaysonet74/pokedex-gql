@@ -9,12 +9,12 @@ export const getHeight = (
   const { height } = parent?._meta ?? {};
 
   const {
-    helpers: { formattedHeight, heightInFeet },
+    helpers: { formattedHeight, heightInFeetInches },
   } = ctx;
 
   return height
     ? formattedHeight({
-        heightInFeet: heightInFeet({ heightInDecimeters: height }),
+        heightInFeetInches: heightInFeetInches({ heightInDecimeters: height }),
       })
     : null;
 };

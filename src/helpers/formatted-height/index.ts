@@ -1,15 +1,12 @@
 interface FormattedHeightParams {
-  heightInFeet: number;
+  heightInFeetInches: [number, number];
 }
 
-/**
- * @returns `"14 inches"`
- */
 export type FormattedHeight = (p: FormattedHeightParams) => string;
 
 export const getFormattedHeight = ({
-  heightInFeet,
+  heightInFeetInches = [0, 0],
 }: FormattedHeightParams): string => {
-  const [feet = "0", inches = "0"] = heightInFeet?.toString()?.split(".") ?? [];
-  return `${feet}' ${parseInt(inches) < 10 ? `0${inches}` : inches}"`;
+  const [feet, inches] = heightInFeetInches;
+  return `${feet}' ${inches < 10 ? `0${inches}` : inches}"`;
 };
