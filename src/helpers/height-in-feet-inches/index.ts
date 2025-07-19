@@ -21,5 +21,6 @@ export const getHeightInFeetInches = ({
   const feet = Math.floor(totalInches / INCHES_PER_FOOT);
   const inches = Math.round(totalInches % INCHES_PER_FOOT);
 
-  return [feet, inches];
+  // If inches round to 12, increment feet and reset inches to 0
+  return inches === 12 ? [feet + 1, 0] : [feet, inches];
 };
