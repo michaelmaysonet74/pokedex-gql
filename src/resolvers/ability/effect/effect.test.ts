@@ -38,7 +38,7 @@ const basePokeAPI = {
   getPokemonAbilityEffectById: jest.fn().mockResolvedValue(fakeAbilityEffects),
 } as unknown as PokeAPI;
 
-const baseDataSources: PokemonDataSources = {
+const baseDataSources: Partial<PokemonDataSources> = {
   pokeAPI: basePokeAPI,
 };
 

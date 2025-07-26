@@ -3,11 +3,11 @@ import { MetaPokemon } from "..";
 import { Pokemon } from "../../../data-sources/poke-api/models/pokemon";
 import { ResolverContext } from "../../../context/types";
 import { PokemonDataSources } from "../../../data-sources";
-import { PokeAPI } from "../../../data-sources/poke-api";
 import { SchemaPokemonType } from "../../../schema-types";
 import helpers from "../../../helpers";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
-import { fakePokemonTypeDetails } from "../../../fixtures/data-sources/pokemon-type-details";
+import { fakePokemonTypeChartResponse } from "../../../fixtures/data-sources/pokemon-type-chart";
+import { PokemonTypeChart } from "../../../data-sources/pokemon-type-chart";
 
 const baseParent: MetaPokemon = {
   id: "7",
@@ -16,14 +16,14 @@ const baseParent: MetaPokemon = {
   },
 };
 
-const basePokeAPI = {
-  getPokemonTypeDetailsById: jest
+const basePokemonTypeChart = {
+  getPokemonTypeChart: jest
     .fn()
-    .mockResolvedValue(fakePokemonTypeDetails),
-} as unknown as PokeAPI;
+    .mockResolvedValue(fakePokemonTypeChartResponse),
+} as unknown as PokemonTypeChart;
 
-const baseDataSources: PokemonDataSources = {
-  pokeAPI: basePokeAPI,
+const baseDataSources: Partial<PokemonDataSources> = {
+  pokemonTypeChart: basePokemonTypeChart,
 };
 
 const baseContext = {
@@ -35,8 +35,8 @@ describe("Pokemon.weaknesses", () => {
   it("should return weaknesses based from the _meta.pokemonDetails.types", async () => {
     const result = await getWeaknesses(baseParent, null, baseContext);
     expect(result).toEqual([
-      SchemaPokemonType.grass,
       SchemaPokemonType.electric,
+      SchemaPokemonType.grass,
     ]);
   });
 

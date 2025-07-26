@@ -5,9 +5,11 @@ import { PokemonDataSources } from "../../data-sources";
 import { RequestContext } from "../../context/types";
 import { PokeAPI } from "../../data-sources/poke-api";
 import { typeDefs, resolvers } from "../../resolvers";
+import { PokemonTypeChart } from "../../data-sources/pokemon-type-chart";
 
 export const baseDataSources = {
   pokeAPI: new PokeAPI(),
+  pokemonTypeChart: new PokemonTypeChart(),
 };
 
 export const baseRequestContext = {

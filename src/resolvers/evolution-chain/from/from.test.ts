@@ -15,7 +15,7 @@ const basePokeAPI = {
   getPokemonSpeciesById: jest.fn().mockResolvedValue(fakePokemonSpecies2),
 } as unknown as PokeAPI;
 
-const baseDataSources: PokemonDataSources = {
+const baseDataSources: Partial<PokemonDataSources> = {
   pokeAPI: basePokeAPI,
 };
 
