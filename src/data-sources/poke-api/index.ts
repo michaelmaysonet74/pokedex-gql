@@ -7,9 +7,9 @@ import { PokemonSpecies, SpeciesId } from "./models/pokemon-species";
 import { PokemonTypeDetails } from "./models/pokemon-type";
 
 export class PokeAPI extends RESTDataSource {
-  constructor() {
+  constructor(baseURL = "https://pokeapi.co/api/v2") {
     super();
-    this.baseURL = "https://pokeapi.co/api/v2";
+    this.baseURL = baseURL;
   }
 
   private async getPokemonBy(filter: string): Promise<Pokemon> {

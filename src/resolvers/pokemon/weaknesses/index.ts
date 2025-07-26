@@ -1,69 +1,36 @@
 import { MetaPokemon } from "..";
 import { ResolverContext } from "../../../context/types";
 import { SchemaPokemonType } from "../../../schema-types";
+import { Request } from "../../../data-sources/pokemon-type-chart/models/request";
 
 export const getWeaknesses = async (
   parent: MetaPokemon,
   _: null,
   ctx: ResolverContext
 ): Promise<SchemaPokemonType[]> => {
-  const { types = [] } = parent._meta?.pokemonDetails ?? {};
+  const { name, types = [] } = parent._meta?.pokemonDetails ?? {};
 
-  if (types.length === 0) {
+  if (!name || types.length === 0) {
     return [];
   }
 
   const {
-    dataSources: { pokeAPI },
-    helpers: { idsFromUrl, title },
+    dataSources: { pokemonTypeChart },
+    helpers: { title },
   } = ctx;
 
-  const ids = types
-    .map(({ type }) => idsFromUrl({ url: type.url })[0])
-    .filter((id) => id !== undefined);
+  const request: Request = {
+    pokemon: {
+      name,
+      types: types.map(({ type }) => type.name),
+    },
+  };
 
-  const detailedTypes = await Promise.all(
-    ids.map((id) => pokeAPI.getPokemonTypeDetailsById(id))
+  const response = await pokemonTypeChart.getPokemonTypeChart(request);
+
+  return (
+    response?.type_chart.weaknesses.map(
+      (type) => title({ str: type }) as SchemaPokemonType
+    ) ?? []
   );
-
-  const doubleDamageTypes = detailedTypes.flatMap((details) =>
-    details
-      ? Array.from(
-          new Set(
-            details.damage_relations.double_damage_from.map(({ name }) => name)
-          )
-        )
-      : []
-  );
-
-  const halfDamageTypes = detailedTypes.flatMap((details) =>
-    details
-      ? Array.from(
-          new Set(
-            details.damage_relations.half_damage_from.map(({ name }) => name)
-          )
-        )
-      : []
-  );
-
-  const noDamageTypes = detailedTypes.flatMap((details) =>
-    details
-      ? Array.from(
-          new Set(
-            details.damage_relations.no_damage_from.map(({ name }) => name)
-          )
-        )
-      : []
-  );
-
-  const weaknesses = Array.from(
-    new Set(
-      doubleDamageTypes.filter(
-        (type) =>
-          !halfDamageTypes.includes(type) && !noDamageTypes.includes(type)
-      )
-    )
-  );
-
-  return weaknesses.map((type) => title({ str: type }) as SchemaPokemonType);
 };
