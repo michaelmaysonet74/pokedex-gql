@@ -4,6 +4,7 @@ import { fakePokemon2 } from "../../../fixtures/data-sources/pokemon";
 import { fakePokemonSpecies2 } from "../../../fixtures/data-sources/pokemon-species";
 import { fakePokemonTypeDetails } from "../../../fixtures/data-sources/pokemon-type-details";
 import { fakePokemonByName } from "../../../fixtures/resolvers/query";
+import { fakePokemonTypeChartResponse } from "../../../fixtures/data-sources/pokemon-type-chart";
 
 const GET_POKEMON_BY_NAME = gql`
   query GetPokemonByName($name: String!) {
@@ -34,6 +35,8 @@ const GET_POKEMON_BY_NAME = gql`
           name
         }
       }
+      immunities
+      resistances
       weaknesses
       baseStats {
         hp
@@ -63,6 +66,10 @@ describe("Query.pokemonByName", () => {
     jest
       .spyOn(baseDataSources.pokeAPI, "getPokemonTypeDetailsById")
       .mockResolvedValue(fakePokemonTypeDetails);
+
+    jest
+      .spyOn(baseDataSources.pokemonTypeChart, "getPokemonTypeChart")
+      .mockResolvedValue(fakePokemonTypeChartResponse);
   });
 
   it("should return Pokemon by ID", async () => {

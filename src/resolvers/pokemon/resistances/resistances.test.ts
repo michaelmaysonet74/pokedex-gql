@@ -1,4 +1,4 @@
-import { getWeaknesses } from ".";
+import { getResistances } from ".";
 import { MetaPokemon } from "..";
 import { ResolverContext } from "../../../context/types";
 import { SchemaPokemonType } from "../../../schema-types";
@@ -14,12 +14,14 @@ const baseParent: MetaPokemon = {
 
 const baseContext = { helpers } as ResolverContext;
 
-describe("Pokemon.weaknesses", () => {
-  it("should return weaknesses based from _meta.typeChart.weaknesses ", () => {
-    const result = getWeaknesses(baseParent, null, baseContext);
+describe("Pokemon.resistances", () => {
+  it("should return resistances based from _meta.typeChart.resistances ", () => {
+    const result = getResistances(baseParent, null, baseContext);
     expect(result).toEqual([
-      SchemaPokemonType.electric,
-      SchemaPokemonType.grass,
+      SchemaPokemonType.fire,
+      SchemaPokemonType.ice,
+      SchemaPokemonType.steel,
+      SchemaPokemonType.water,
     ]);
   });
 });

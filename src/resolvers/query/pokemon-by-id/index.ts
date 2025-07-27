@@ -12,17 +12,31 @@ export const getPokemonById = async (
   const { id } = args;
 
   const {
-    dataSources: { pokeAPI },
+    dataSources: { pokeAPI, pokemonTypeChart },
   } = ctx;
 
   const pokemonDetails = await pokeAPI.getPokemonById(id);
 
-  return pokemonDetails?.id
-    ? ({
-        id: pokemonDetails?.id.toString(),
-        _meta: {
-          pokemonDetails,
-        },
-      } as SchemaPokemon)
-    : null;
+  if (!pokemonDetails?.id) {
+    return null;
+  }
+
+  const pokemonTypeChartReq = {
+    pokemon: {
+      name: pokemonDetails.name,
+      types: pokemonDetails.types.map(({ type }) => type.name),
+    },
+  };
+
+  const pokemonTypeChartRes = await pokemonTypeChart.getPokemonTypeChart(
+    pokemonTypeChartReq
+  );
+
+  return {
+    id: pokemonDetails?.id.toString(),
+    _meta: {
+      pokemonDetails,
+      typeChart: pokemonTypeChartRes?.type_chart,
+    },
+  } as SchemaPokemon;
 };

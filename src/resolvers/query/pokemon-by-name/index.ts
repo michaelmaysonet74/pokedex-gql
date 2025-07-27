@@ -12,7 +12,7 @@ export const getPokemonByName = async (
   const { name } = args;
 
   const {
-    dataSources: { pokeAPI },
+    dataSources: { pokeAPI, pokemonTypeChart },
     helpers: { constructedKebab },
   } = ctx;
 
@@ -20,12 +20,26 @@ export const getPokemonByName = async (
     constructedKebab({ str: name })
   );
 
-  return pokemonDetails?.id
-    ? ({
-        id: pokemonDetails?.id.toString(),
-        _meta: {
-          pokemonDetails,
-        },
-      } as SchemaPokemon)
-    : null;
+  if (!pokemonDetails?.id) {
+    return null;
+  }
+
+  const pokemonTypeChartReq = {
+    pokemon: {
+      name: pokemonDetails.name,
+      types: pokemonDetails.types.map(({ type }) => type.name),
+    },
+  };
+
+  const pokemonTypeChartRes = await pokemonTypeChart.getPokemonTypeChart(
+    pokemonTypeChartReq
+  );
+
+  return {
+    id: pokemonDetails?.id.toString(),
+    _meta: {
+      pokemonDetails,
+      typeChart: pokemonTypeChartRes?.type_chart,
+    },
+  } as SchemaPokemon;
 };

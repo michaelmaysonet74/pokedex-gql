@@ -1,10 +1,7 @@
 import { Pokemon } from "./pokemon";
+import { TypeChart } from "./type-chart";
 
 export interface Response {
   pokemon: Pokemon;
-  type_chart: {
-    immunities: string[];
-    resistances: string[];
-    weaknesses: string[];
-  };
+  type_chart: TypeChart;
 }
