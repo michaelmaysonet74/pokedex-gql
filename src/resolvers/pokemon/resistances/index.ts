@@ -2,16 +2,16 @@ import { MetaPokemon } from "..";
 import { ResolverContext } from "../../../context/types";
 import { SchemaPokemonType } from "../../../schema-types";
 
-export const getWeaknesses = (
+export const getResistances = (
   parent: MetaPokemon,
   _: null,
   ctx: ResolverContext
 ): SchemaPokemonType[] => {
-  const { weaknesses = [] } = parent._meta?.typeChart ?? {};
+  const { resistances = [] } = parent._meta?.typeChart ?? {};
 
   const {
     helpers: { title },
   } = ctx;
 
-  return weaknesses.map((type) => title({ str: type }) as SchemaPokemonType);
+  return resistances.map((type) => title({ str: type }) as SchemaPokemonType);
 };

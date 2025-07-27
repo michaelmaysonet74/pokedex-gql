@@ -126,6 +126,8 @@ export type SchemaPokemon = {
   evolution?: Maybe<SchemaEvolutionChain>;
   /** Pokemon's id, can match pokedex number (not always). */
   id: Scalars["ID"];
+  /** List of types that this Pokemon is immune to. */
+  immunities?: Maybe<Array<Maybe<SchemaPokemonType>>>;
   /** Determines if Pokemon only have one type or not. */
   isMonoType?: Maybe<Scalars["Boolean"]>;
   /** Pokemon's measurement */
@@ -134,11 +136,13 @@ export type SchemaPokemon = {
   moves?: Maybe<Array<Maybe<Scalars["String"]>>>;
   /** Pokemon's name */
   name?: Maybe<Scalars["String"]>;
+  /** List of types that this Pokemon resist. */
+  resistances?: Maybe<Array<Maybe<SchemaPokemonType>>>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
   /** Types that this Pokemon has, should not be more than two. */
   types?: Maybe<SchemaPokemonTypes>;
-  /** List of types that this Pokemon is weak against. */
+  /** List of types that this Pokemon is weak to. */
   weaknesses?: Maybe<Array<Maybe<SchemaPokemonType>>>;
 };
 

@@ -13,10 +13,14 @@ import { gql } from "apollo-server";
 import { getWeaknesses } from "./weaknesses";
 import { getBaseStats } from "./base-stats";
 import { getCategory } from "./category";
+import { getImmunities } from "./immunities";
+import { getResistances } from "./resistances";
+import { TypeChart } from "../../data-sources/pokemon-type-chart/models/type-chart";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
     pokemonDetails?: Pokemon;
+    typeChart?: TypeChart;
   };
 }
 
@@ -125,7 +129,13 @@ const PokemonSchema = gql`
     "Pokemon's evolution chain"
     evolution: EvolutionChain
 
-    "List of types that this Pokemon is weak against."
+    "List of types that this Pokemon is immune to."
+    immunities: [PokemonType]
+
+    "List of types that this Pokemon resist."
+    resistances: [PokemonType]
+
+    "List of types that this Pokemon is weak to."
     weaknesses: [PokemonType]
 
     "Pokemon's base stats"
@@ -146,6 +156,8 @@ const PokemonResolver = {
   entry: getEntry,
   sprite: getSprite,
   evolution: getEvolution,
+  immunities: getImmunities,
+  resistances: getResistances,
   weaknesses: getWeaknesses,
   baseStats: getBaseStats,
   category: getCategory,

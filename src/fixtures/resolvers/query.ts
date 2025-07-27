@@ -32,6 +32,13 @@ export const fakePokemonById: SchemaPokemon = {
   evolution: {
     from: null,
   },
+  immunities: [],
+  resistances: [
+    SchemaPokemonType.fire,
+    SchemaPokemonType.ice,
+    SchemaPokemonType.steel,
+    SchemaPokemonType.water,
+  ],
   weaknesses: [SchemaPokemonType.electric, SchemaPokemonType.grass],
   baseStats: {
     hp: 44,
@@ -68,6 +75,13 @@ export const fakePokemonByName: SchemaPokemon = {
       name: "Squirtle",
     },
   },
+  immunities: [],
+  resistances: [
+    SchemaPokemonType.fire,
+    SchemaPokemonType.ice,
+    SchemaPokemonType.steel,
+    SchemaPokemonType.water,
+  ],
   weaknesses: [SchemaPokemonType.electric, SchemaPokemonType.grass],
   baseStats: {
     hp: 59,
