@@ -8,12 +8,7 @@ export class PokemonTypeChart extends RESTDataSource {
     this.baseURL = baseURL;
   }
 
-  async getPokemonTypeChart(request: Request): Promise<Response | null> {
-    try {
-      return this.post("/pokemon/type-charts", request);
-    } catch (e) {
-      console.error(e);
-      return null;
-    }
+  async getPokemonTypeChart(request: Request): Promise<Response> {
+    return this.post("/pokemon/type-charts", request);
   }
 }
