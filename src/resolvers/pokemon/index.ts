@@ -1,5 +1,7 @@
+import { gql } from "apollo-server";
 import { SchemaPokemon } from "../../schema-types";
 import { Pokemon } from "../../data-sources/poke-api/models/pokemon";
+import { TypeChart } from "../../data-sources/pokemon-type-chart/models/type-chart";
 import { getName } from "./name";
 import { getMoves } from "./moves";
 import { getTypes } from "./types";
@@ -9,13 +11,11 @@ import { getIsMonoType } from "./is-mono-type";
 import { getEntry } from "./entry";
 import { getSprite } from "./sprite";
 import { getEvolution } from "./evolution";
-import { gql } from "apollo-server";
 import { getWeaknesses } from "./weaknesses";
 import { getBaseStats } from "./base-stats";
 import { getCategory } from "./category";
 import { getImmunities } from "./immunities";
 import { getResistances } from "./resistances";
-import { TypeChart } from "../../data-sources/pokemon-type-chart/models/type-chart";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
