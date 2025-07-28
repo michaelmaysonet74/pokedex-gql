@@ -107,6 +107,7 @@ query GetPokemonById {
 
 - node >= 16
 - npm >= 7.20.x
+- Docker (optional, but recommended for local development)
 
 ### Local Development
 
@@ -117,6 +118,14 @@ $ npm i
 # Start Apollo Server
 $ npm run dev
 ```
+
+Docker Compose is also available for local development:
+
+```bash
+$ docker compose up
+```
+
+__Note__: Using Docker Compose is optional, but highly recommended if  you don't want to run other services locally, like the [pokemon-type-chart](https://github.com/michaelmaysonet74/pokemon-type-chart) service.
 
 ### Unit Tests
 
