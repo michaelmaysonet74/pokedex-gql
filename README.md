@@ -107,6 +107,7 @@ query GetPokemonById {
 
 - node >= 16
 - npm >= 7.20.x
+- Docker (optional, but recommended for local development)
 
 ### Local Development
 
