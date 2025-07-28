@@ -1,0 +1,18 @@
+services:
+  pokedex-gql:
+    build: .
+    depends_on:
+      - pokemon-type-chart
+    environment:
+      - NODE_ENV=development
+      - POKEMON_TYPE_CHART_BASE_URL=http://pokemon-type-chart:4001
+    ports:
+      - "4000:4000"
+  
+  pokemon-type-chart:
+    image: michaelmaysonet/pokemon_type_chart:latest
+    environment:
+      - PORT=4001
+    ports:
+      - "4001:4001"
+    restart: unless-stopped
