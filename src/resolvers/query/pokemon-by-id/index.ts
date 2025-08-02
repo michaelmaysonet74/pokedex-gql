@@ -17,9 +17,7 @@ export const getPokemonById = async (
 
   const pokemonDetails = await pokeAPI.getPokemonById(id);
 
-  if (!pokemonDetails) {
-    return null;
-  }
+  if (!pokemonDetails) return null;
 
   const pokemonTypeChartReq = {
     pokemon: {
@@ -36,7 +34,7 @@ export const getPokemonById = async (
     id: pokemonDetails.id.toString(),
     _meta: {
       pokemonDetails,
-      typeChart: pokemonTypeChartRes.type_chart,
+      typeChart: pokemonTypeChartRes?.type_chart,
     },
   } as SchemaPokemon;
 };

@@ -14,6 +14,7 @@ import { getIdsFromUrl, IdsFromUrl } from "./ids-from-url";
 import { sanitizeString, SanitizeString } from "./sanitize-string";
 import { getTitle, Title } from "./title";
 import { getWeightInPounds, WeightInPounds } from "./weight-in-pounds";
+import { getSpecialName, SpecialNameMapper } from "./special-name-mapper";
 
 export interface Helpers {
   capitalized: Capitalized;
@@ -24,6 +25,7 @@ export interface Helpers {
   heightInFeetInches: HeightInFeetInches;
   idsFromUrl: IdsFromUrl;
   sanitizeString: SanitizeString;
+  specialNameMapper: SpecialNameMapper;
   title: Title;
   weightInPounds: WeightInPounds;
 }
@@ -37,6 +39,7 @@ const helpers: Helpers = {
   heightInFeetInches: getHeightInFeetInches,
   idsFromUrl: getIdsFromUrl,
   sanitizeString: sanitizeString,
+  specialNameMapper: getSpecialName,
   title: getTitle,
   weightInPounds: getWeightInPounds,
 };
