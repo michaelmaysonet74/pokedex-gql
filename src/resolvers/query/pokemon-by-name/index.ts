@@ -13,11 +13,12 @@ export const getPokemonByName = async (
 
   const {
     dataSources: { pokeAPI, pokemonTypeChart },
-    helpers: { constructedKebab },
+    helpers: { constructedKebab, specialNameMapper },
   } = ctx;
 
   const pokemonDetails = await pokeAPI.getPokemonByName(
-    constructedKebab({ str: name })
+    specialNameMapper({ name, inverse: true }) ??
+      constructedKebab({ str: name })
   );
 
   if (!pokemonDetails) return null;
