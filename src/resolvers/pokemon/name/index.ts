@@ -8,9 +8,11 @@ export const getName = (
 ): string | null => {
   const { name } = parent?._meta?.pokemonDetails ?? {};
 
+  if (!name) return null;
+
   const {
-    helpers: { title },
+    helpers: { title, specialNameMapper },
   } = ctx;
 
-  return name ? title({ str: name }) : null;
+  return specialNameMapper({ name }) ?? title({ str: name });
 };
