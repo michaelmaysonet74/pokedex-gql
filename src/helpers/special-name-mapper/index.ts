@@ -20,6 +20,8 @@ const EXTERNAL_TO_SPECIAL_NAMES: Record<string, string> = {
   "morpeko-full-belly": "Morpeko",
   "mr-mime": "Mr. Mime",
   "mr-rime": "Mr. Rime",
+  "nidoran-f": "Nidoran♀",
+  "nidoran-m": "Nidoran♂",
   "oricorio-baile": "Oricorio",
   "porygon-z": "Porygon-Z",
   sirfetchd: "Sirfetch'd",
