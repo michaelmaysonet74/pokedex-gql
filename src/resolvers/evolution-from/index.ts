@@ -11,17 +11,6 @@ export interface MetaEvolutionFrom {
 
 const EvolutionFromSchema = gql`
   """
-  Represents a Pokemon Evolution
-  """
-  interface Evolution {
-    "Pokemon's id, can match pokedex number (not always)."
-    id: ID
-
-    "Pokemon's name"
-    name: String
-  }
-
-  """
   Represents a Pokemon which it evolves from.
   """
   type EvolutionFrom implements Evolution {

@@ -5,6 +5,7 @@ import { Pokemon, PokemonId, PokemonName } from "./models/pokemon";
 import { AbilityId } from "./models/pokemon-ability";
 import { PokemonSpecies, SpeciesId } from "./models/pokemon-species";
 import { PokemonTypeDetails } from "./models/pokemon-type";
+import { EvolutionChain } from "./models/pokemon-evolution-chain";
 
 export class PokeAPI extends RESTDataSource {
   constructor(baseURL = "https://pokeapi.co/api/v2") {
@@ -85,5 +86,11 @@ export class PokeAPI extends RESTDataSource {
     id: string
   ): Promise<PokemonTypeDetails | undefined> {
     return this.pokemonTypeDetailsByIdLoader.load(id);
+  }
+
+  async getPokemonEvolutionChain(
+    id: string
+  ): Promise<EvolutionChain | undefined> {
+    return this.get(`/evolution-chain/${id}`);
   }
 }
