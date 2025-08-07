@@ -1,12 +1,12 @@
-import { MetaEvolutionFrom } from "..";
+import { MetaEvolutionTo } from "..";
 import { ResolverContext } from "../../../context/types";
 
 export const getId = (
-  parent: MetaEvolutionFrom,
+  parent: MetaEvolutionTo,
   _: null,
   ctx: ResolverContext
 ): string | null => {
-  const { url } = parent?._meta?.evolutionFromSpecies ?? {};
+  const { url } = parent?._meta?.evolution?.species ?? {};
 
   if (!url) return null;
 

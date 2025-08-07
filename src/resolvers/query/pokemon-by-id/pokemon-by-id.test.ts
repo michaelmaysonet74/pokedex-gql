@@ -2,9 +2,9 @@ import { ApolloServer, ExpressContext, gql } from "apollo-server-express";
 import { createTestServer, baseDataSources } from "../../../helpers/test";
 import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
 import { fakePokemonSpecies } from "../../../fixtures/data-sources/pokemon-species";
-import { fakePokemonTypeDetails } from "../../../fixtures/data-sources/pokemon-type-details";
 import { fakePokemonById } from "../../../fixtures/resolvers/query";
 import { fakePokemonTypeChartResponse } from "../../../fixtures/data-sources/pokemon-type-chart";
+import { fakeEvolutionChain } from "../../../fixtures/data-sources/pokemon-evolution-chain";
 
 const GET_POKEMON_BY_ID = gql`
   query GetPokemonById($id: ID!) {
@@ -31,6 +31,10 @@ const GET_POKEMON_BY_ID = gql`
       sprite
       evolution {
         from {
+          id
+          name
+        }
+        to {
           id
           name
         }
@@ -64,8 +68,8 @@ describe("Query.pokemonById", () => {
       .mockResolvedValue(fakePokemonSpecies);
 
     jest
-      .spyOn(baseDataSources.pokeAPI, "getPokemonTypeDetailsById")
-      .mockResolvedValue(fakePokemonTypeDetails);
+      .spyOn(baseDataSources.pokeAPI, "getPokemonEvolutionChain")
+      .mockResolvedValue(fakeEvolutionChain);
 
     jest
       .spyOn(baseDataSources.pokemonTypeChart, "getPokemonTypeChart")

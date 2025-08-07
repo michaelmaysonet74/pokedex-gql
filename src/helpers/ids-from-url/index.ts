@@ -2,7 +2,7 @@ interface IdFromUrlParams {
   url: string;
 }
 
-export type IdsFromUrl = (p: IdFromUrlParams) => string[];
+export type IdsFromUrl = (p: IdFromUrlParams) => (string | undefined)[];
 
 const isNumeric = (str: string): boolean => !!str.match(/^[0-9]+$/)?.length;
 

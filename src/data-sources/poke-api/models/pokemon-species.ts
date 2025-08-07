@@ -7,12 +7,17 @@ export interface EvolutionFrom {
   url?: string | null;
 }
 
+export interface EvolutionChain {
+  url?: string | null;
+}
+
 export interface Genera {
   genus?: string | null;
   language?: EntryLanguage | null;
 }
 
 export interface PokemonSpecies extends FlavorTextEntries {
+  evolution_chain?: EvolutionChain;
   evolves_from_species?: EvolutionFrom;
   genera?: Genera[];
 }

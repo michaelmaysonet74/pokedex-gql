@@ -57,13 +57,24 @@ export type SchemaEvolution = {
 /** Represents a Pokemon Evolution chain. */
 export type SchemaEvolutionChain = {
   __typename?: "EvolutionChain";
-  /** Represents a Pokemon which it evolves from in the chain. */
+  /** Represents the Pokemon it evolves from in the evolution chain. */
   from?: Maybe<SchemaEvolutionFrom>;
+  /** Represents the Pokemon it evolves to in the evolution chain. */
+  to?: Maybe<Array<SchemaEvolutionTo>>;
 };
 
 /** Represents a Pokemon which it evolves from. */
 export type SchemaEvolutionFrom = SchemaEvolution & {
   __typename?: "EvolutionFrom";
+  /** Pokemon's id, can match pokedex number (not always). */
+  id?: Maybe<Scalars["ID"]>;
+  /** Pokemon's name */
+  name?: Maybe<Scalars["String"]>;
+};
+
+/** Represents a Pokemon which it evolves to. */
+export type SchemaEvolutionTo = SchemaEvolution & {
+  __typename?: "EvolutionTo";
   /** Pokemon's id, can match pokedex number (not always). */
   id?: Maybe<Scalars["ID"]>;
   /** Pokemon's name */

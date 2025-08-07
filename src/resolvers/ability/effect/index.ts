@@ -19,19 +19,14 @@ export const getEffect = async (
   const { language: maybeLanguage } = args;
   const byLanguage = filterByLanguage({ filter: maybeLanguage });
 
-  try {
-    const abilityId = idsFromUrl({ url })?.[0];
+  const [abilityId] = idsFromUrl({ url });
 
-    const { flavor_text_entries = [] } =
-      (await pokeAPI.getPokemonAbilityEffectById(parseInt(abilityId))) ?? {};
+  const { flavor_text_entries = [] } =
+    (await pokeAPI.getPokemonAbilityEffectById(abilityId)) ?? {};
 
-    const entry = flavor_text_entries
-      .filter((_) => byLanguage(_.language))
-      .map(({ flavor_text }) => flavor_text)?.[0];
+  const entry = flavor_text_entries
+    .filter((_) => byLanguage(_.language))
+    .map(({ flavor_text }) => flavor_text)?.[0];
 
-    return entry ? sanitizeString({ str: entry }) : null;
-  } catch (err) {
-    console.error(err);
-    return null;
-  }
+  return entry ? sanitizeString({ str: entry }) : null;
 };

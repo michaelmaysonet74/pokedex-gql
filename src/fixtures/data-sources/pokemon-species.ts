@@ -7,6 +7,7 @@ import {
   PokemonSpecies,
   EvolutionFrom,
   Genera,
+  EvolutionChain,
 } from "../../data-sources/poke-api/models/pokemon-species";
 
 export const fakeGameVersion: GameVersion = {
@@ -58,6 +59,10 @@ export const fakeEvolvesFromSpecies: EvolutionFrom = {
   url: "http://www.test.com/7",
 };
 
+export const fakeEvolutionChain: EvolutionChain = {
+  url: "http://www.test.com/3",
+};
+
 export const fakeGenera: Genera = {
   genus: "Tiny Turtle Pokémon",
   language: fakeEntryLanguage,
@@ -76,12 +81,14 @@ export const fakePokemonSpecies: PokemonSpecies = {
     fakeFlavorTextEntry3,
     fakeFlavorTextEntry4,
   ],
+  evolution_chain: fakeEvolutionChain,
   genera: [fakeGenera],
 };
 
 export const fakePokemonSpecies2: PokemonSpecies = {
   id: 2,
   flavor_text_entries: [],
+  evolution_chain: fakeEvolutionChain,
   evolves_from_species: fakeEvolvesFromSpecies,
   genera: [fakeGenera2],
 };

@@ -9,13 +9,11 @@ export const getFrom = async (
 ): Promise<SchemaEvolutionFrom | null> => {
   const { pokemonId } = parent?._meta ?? {};
 
+  if (!pokemonId) return null;
+
   const {
     dataSources: { pokeAPI },
   } = ctx;
-
-  if (!pokemonId) {
-    return null;
-  }
 
   const { evolves_from_species } =
     (await pokeAPI.getPokemonSpeciesById(pokemonId)) ?? {};
