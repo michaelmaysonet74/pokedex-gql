@@ -59,7 +59,7 @@ export type SchemaEvolutionChain = {
   __typename?: "EvolutionChain";
   /** Represents the Pokemon it evolves from in the evolution chain. */
   from?: Maybe<SchemaEvolutionFrom>;
-  /** Represents the Pokémon it evolves to in the evolution chain. */
+  /** Represents the Pokemon it evolves to in the evolution chain. */
   to?: Maybe<Array<SchemaEvolutionTo>>;
 };
 
