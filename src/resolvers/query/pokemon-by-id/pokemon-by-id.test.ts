@@ -4,6 +4,7 @@ import { fakePokemon } from "../../../fixtures/data-sources/pokemon";
 import { fakePokemonSpecies } from "../../../fixtures/data-sources/pokemon-species";
 import { fakePokemonById } from "../../../fixtures/resolvers/query";
 import { fakePokemonTypeChartResponse } from "../../../fixtures/data-sources/pokemon-type-chart";
+import { fakeEvolutionChain } from "../../../fixtures/data-sources/pokemon-evolution-chain";
 
 const GET_POKEMON_BY_ID = gql`
   query GetPokemonById($id: ID!) {
@@ -30,6 +31,10 @@ const GET_POKEMON_BY_ID = gql`
       sprite
       evolution {
         from {
+          id
+          name
+        }
+        to {
           id
           name
         }
@@ -61,6 +66,10 @@ describe("Query.pokemonById", () => {
     jest
       .spyOn(baseDataSources.pokeAPI, "getPokemonSpeciesById")
       .mockResolvedValue(fakePokemonSpecies);
+
+    jest
+      .spyOn(baseDataSources.pokeAPI, "getPokemonEvolutionChain")
+      .mockResolvedValue(fakeEvolutionChain);
 
     jest
       .spyOn(baseDataSources.pokemonTypeChart, "getPokemonTypeChart")

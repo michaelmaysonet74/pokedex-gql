@@ -31,6 +31,12 @@ export const fakePokemonById: SchemaPokemon = {
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
   evolution: {
     from: null,
+    to: [
+      {
+        id: "8",
+        name: "Wartortle",
+      },
+    ],
   },
   immunities: [],
   resistances: [
@@ -74,6 +80,12 @@ export const fakePokemonByName: SchemaPokemon = {
       id: "7",
       name: "Squirtle",
     },
+    to: [
+      {
+        id: "9",
+        name: "Blastoise",
+      },
+    ],
   },
   immunities: [],
   resistances: [

@@ -11,38 +11,44 @@ GraphQL Pokedex
 
 ```graphql
 query GetPokemonById {
-    pokemonById(id: "149") {
-      id
-      name
-      category
-      isMonoType
-      types {
-        primary
-        secondary
-      }
-      abilities {
+    pokemonById(id: "") {
+        id
         name
-        effect
-        isHidden
-      }
-      evolution {
-        from {
-          id
-          name
+        category
+        isMonoType
+        types {
+            primary
+            secondary
         }
-      }
-      weaknesses
-      baseStats {
-        hp  
-        attack
-        defense
-        specialAttack
-        specialDefense
-        speed
-        total
-      }
+        abilities {
+            name
+            effect
+            isHidden
+        }
+        evolution {
+            from {
+                id
+                name
+            }
+            to {
+                id
+                name
+            }
+        }
+        weaknesses
+        resistances
+        immunities
+        baseStats {
+            hp
+            attack
+            defense
+            specialAttack
+            specialDefense
+            speed
+            total
+        }
     }
-  }
+}
 ```
 </td>
 <td>
@@ -52,46 +58,58 @@ query GetPokemonById {
 {
     "data": {
         "pokemonById": {
-            "id": "149",
-            "name": "Dragonite",
+            "id": "148",
+            "name": "Dragonair",
             "category": "Dragon",
-            "isMonoType": false,
+            "isMonoType": true,
             "types": {
                 "primary": "Dragon",
-                "secondary": "Flying"
+                "secondary": null
             },
             "abilities": [
                 {
-                    "name": "Inner Focus",
-                    "effect": "Prevents flinching.",
+                    "name": "Shed Skin",
+                    "effect": "Heals the body by shedding.",
                     "isHidden": false
                 },
                 {
-                    "name": "Multiscale",
-                    "effect": "Reduces damage when HP is full.",
+                    "name": "Marvel Scale",
+                    "effect": "Ups DEFENSE if suffering.",
                     "isHidden": true
                 }
             ],
             "evolution": {
                 "from": {
-                    "id": "148",
-                    "name": "Dragonair"
-                }
+                    "id": "147",
+                    "name": "Dratini"
+                },
+                "to": [
+                    {
+                        "id": "149",
+                        "name": "Dragonite"
+                    }
+                ]
             },
             "weaknesses": [
-                "Ice",
                 "Dragon",
                 "Fairy",
-                "Rock"
+                "Ice"
             ],
+            "resistances": [
+                "Electric",
+                "Fire",
+                "Grass",
+                "Water"
+            ],
+            "immunities": [],
             "baseStats": {
-                "hp": 91,
-                "attack": 134,
-                "defense": 95,
-                "specialAttack": 100,
-                "specialDefense": 100,
-                "speed": 80,
-                "total": 600
+                "hp": 61,
+                "attack": 84,
+                "defense": 65,
+                "specialAttack": 70,
+                "specialDefense": 70,
+                "speed": 70,
+                "total": 420
             }
         }
     }
