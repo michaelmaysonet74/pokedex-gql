@@ -25,9 +25,10 @@ const EvolutionChainSchema = gql`
   Represents a Pokemon Evolution chain.
   """
   type EvolutionChain {
-    "Represents a Pokemon which it evolves from in the chain."
+    "Represents the Pokemon it evolves from in the evolution chain."
     from: EvolutionFrom
 
+    "Represents the Pokémon it evolves to in the evolution chain."
     to: [EvolutionTo!]
   }
 `;
