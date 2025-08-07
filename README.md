@@ -11,7 +11,7 @@ GraphQL Pokedex
 
 ```graphql
 query GetPokemonById {
-    pokemonById(id: "") {
+    pokemonById(id: "148") {
         id
         name
         category
