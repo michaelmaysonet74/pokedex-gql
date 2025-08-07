@@ -8,9 +8,12 @@ export const getId = (
 ): string | null => {
   const { url } = parent?._meta?.evolution?.species ?? {};
 
+  if (!url) return null;
+
   const {
     helpers: { idsFromUrl },
   } = ctx;
 
-  return url ? idsFromUrl({ url })?.[0] : null;
+  const [id] = idsFromUrl({ url });
+  return id ?? null;
 };
