@@ -2,7 +2,7 @@ const EXTERNAL_TO_SPECIAL_NAMES: Record<string, string> = {
   "aegislash-shield": "Aegislash",
   "basculegion-male": "Basculegion",
   "basculin-red-striped": "Basculin",
-  "chi-yun": "Chi-Yu",
+  "chi-yu": "Chi-Yu",
   "chien-pao": "Chien-Pao",
   "darmanitan-standard": "Darmanitan",
   "deoxys-normal": "Deoxys",
