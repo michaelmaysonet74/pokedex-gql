@@ -7,7 +7,6 @@ import { getMoves } from "./moves";
 import { getTypes } from "./types";
 import { getAbilities } from "./abilities";
 import { getMeasurement } from "./measurement";
-import { getIsMonoType } from "./is-mono-type";
 import { getEntry } from "./entry";
 import { getSprite } from "./sprite";
 import { getEvolution } from "./evolution";
@@ -86,16 +85,6 @@ const PokemonSchema = gql`
   }
 
   """
-  Represents a Pokemon's typing.
-  """
-  type PokemonTypes {
-    "Pokemon's primary type"
-    primary: PokemonType!
-    "Pokemon's secondary type. This type might be null because some Pokemon are mono type."
-    secondary: PokemonType
-  }
-
-  """
   Represents the details of a Pokemon.
   """
   type Pokemon {
@@ -109,16 +98,13 @@ const PokemonSchema = gql`
     moves: [String]
 
     "Types that this Pokemon has, should not be more than two."
-    types: PokemonTypes
+    types: [PokemonType!]
 
     "List of abilities this Pokemon can have."
     abilities: [Ability]
 
     "Pokemon's measurement"
     measurement: Measurement
-
-    "Determines if Pokemon only have one type or not."
-    isMonoType: Boolean
 
     "Pokedex flavor text entries for this Pokemon."
     entry(language: Language, version: GameVersion): String
@@ -130,13 +116,13 @@ const PokemonSchema = gql`
     evolution: EvolutionChain
 
     "List of types that this Pokemon is immune to."
-    immunities: [PokemonType]
+    immunities: [PokemonType!]
 
     "List of types that this Pokemon resist."
-    resistances: [PokemonType]
+    resistances: [PokemonType!]
 
     "List of types that this Pokemon is weak to."
-    weaknesses: [PokemonType]
+    weaknesses: [PokemonType!]
 
     "Pokemon's base stats"
     baseStats: BaseStats
@@ -152,7 +138,6 @@ const PokemonResolver = {
   types: getTypes,
   abilities: getAbilities,
   measurement: getMeasurement,
-  isMonoType: getIsMonoType,
   entry: getEntry,
   sprite: getSprite,
   evolution: getEvolution,

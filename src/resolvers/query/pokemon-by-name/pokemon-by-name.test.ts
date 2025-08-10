@@ -12,11 +12,7 @@ const GET_POKEMON_BY_NAME = gql`
       id
       name
       category
-      isMonoType
-      types {
-        primary
-        secondary
-      }
+      types
       abilities {
         name
         effect

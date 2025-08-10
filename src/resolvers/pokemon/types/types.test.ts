@@ -13,15 +13,12 @@ const baseParent: MetaPokemon = {
 
 describe("Pokemon.types", () => {
   it("should return types as an array of strings", () => {
-    const expectedResult = {
-      primary: "Water",
-      secondary: null,
-    };
+    const expectedResult = ["Water"];
     const result = getTypes(baseParent, null, baseResolverContext);
     expect(result).toEqual(expectedResult);
   });
 
-  it("should return null if _meta.pokemonDetails.types is undefined", () => {
+  it("should return [] if _meta.pokemonDetails.types is undefined", () => {
     const updatedParent = {
       ...baseParent,
       _meta: {
@@ -33,6 +30,6 @@ describe("Pokemon.types", () => {
       },
     };
     const result = getTypes(updatedParent, null, baseResolverContext);
-    expect(result).toEqual(null);
+    expect(result).toEqual([]);
   });
 });

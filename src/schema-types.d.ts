@@ -138,9 +138,7 @@ export type SchemaPokemon = {
   /** Pokemon's id, can match pokedex number (not always). */
   id: Scalars["ID"];
   /** List of types that this Pokemon is immune to. */
-  immunities?: Maybe<Array<Maybe<SchemaPokemonType>>>;
-  /** Determines if Pokemon only have one type or not. */
-  isMonoType?: Maybe<Scalars["Boolean"]>;
+  immunities?: Maybe<Array<SchemaPokemonType>>;
   /** Pokemon's measurement */
   measurement?: Maybe<SchemaMeasurement>;
   /** List of moves that this Pokemon can learn. */
@@ -148,13 +146,13 @@ export type SchemaPokemon = {
   /** Pokemon's name */
   name?: Maybe<Scalars["String"]>;
   /** List of types that this Pokemon resist. */
-  resistances?: Maybe<Array<Maybe<SchemaPokemonType>>>;
+  resistances?: Maybe<Array<SchemaPokemonType>>;
   /** URL of Pokemon's sprite */
   sprite?: Maybe<Scalars["String"]>;
   /** Types that this Pokemon has, should not be more than two. */
-  types?: Maybe<SchemaPokemonTypes>;
+  types?: Maybe<Array<SchemaPokemonType>>;
   /** List of types that this Pokemon is weak to. */
-  weaknesses?: Maybe<Array<Maybe<SchemaPokemonType>>>;
+  weaknesses?: Maybe<Array<SchemaPokemonType>>;
 };
 
 /** Represents the details of a Pokemon. */
@@ -189,15 +187,6 @@ export const enum SchemaPokemonType {
   steel = "Steel",
   water = "Water",
 }
-
-/** Represents a Pokemon's typing. */
-export type SchemaPokemonTypes = {
-  __typename?: "PokemonTypes";
-  /** Pokemon's primary type */
-  primary: SchemaPokemonType;
-  /** Pokemon's secondary type. This type might be null because some Pokemon are mono type. */
-  secondary?: Maybe<SchemaPokemonType>;
-};
 
 export type SchemaQuery = {
   __typename?: "Query";
