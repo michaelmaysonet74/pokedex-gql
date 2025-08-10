@@ -15,11 +15,7 @@ query GetPokemonById {
         id
         name
         category
-        isMonoType
-        types {
-            primary
-            secondary
-        }
+        types
         abilities {
             name
             effect
@@ -61,11 +57,7 @@ query GetPokemonById {
             "id": "148",
             "name": "Dragonair",
             "category": "Dragon",
-            "isMonoType": true,
-            "types": {
-                "primary": "Dragon",
-                "secondary": null
-            },
+            "types": ["Dragon"],
             "abilities": [
                 {
                     "name": "Shed Skin",
