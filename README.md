@@ -1,6 +1,6 @@
 # pokedex-gql
 
-GraphQL Pokedex
+GraphQL Pokedex Datasource
 
 ![](https://lucid.app/publicSegments/view/6c8b3481-36a2-4b71-b7da-4fd4efc6be11/image.png)
 
