@@ -1,6 +1,6 @@
 {
-  "name": "poke-dex",
-  "version": "1.0.0",
+  "name": "pokedex",
+  "version": "1.1.0",
   "description": "GraphQL Pokedex",
   "main": "src/server.js",
   "scripts": {

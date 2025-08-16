@@ -13,7 +13,7 @@ export const getTo = async (
 
   const {
     dataSources: { pokeAPI },
-    helpers: { idsFromUrl },
+    helpers: { idsFromUrl, specialNameMapper },
   } = ctx;
 
   const { evolution_chain: evolutionChain } =
@@ -26,11 +26,16 @@ export const getTo = async (
 
   if (!chain) return null;
 
+  const normalizedPokemonName = (
+    specialNameMapper({ name: pokemonName }) ?? pokemonName
+  ).toLocaleLowerCase();
+
   const evolutions =
-    chain.species.name === pokemonName
+    chain.species.name === normalizedPokemonName
       ? chain.evolves_to
-      : chain.evolves_to.find(({ species }) => species.name === pokemonName)
-          ?.evolves_to;
+      : chain.evolves_to.find(
+          ({ species }) => species.name === normalizedPokemonName
+        )?.evolves_to;
 
   return evolutions?.length
     ? evolutions?.map(
