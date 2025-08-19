@@ -7,7 +7,7 @@ export const getResistances = (
   _: null,
   ctx: ResolverContext
 ): SchemaPokemonType[] => {
-  const { resistances = [] } = parent._meta?.typeChart ?? {};
+  const { resistances = [] } = parent._meta?.effectiveness ?? {};
 
   const {
     helpers: { title },

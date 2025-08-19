@@ -7,7 +7,7 @@ export const getWeaknesses = (
   _: null,
   ctx: ResolverContext
 ): SchemaPokemonType[] => {
-  const { weaknesses = [] } = parent._meta?.typeChart ?? {};
+  const { weaknesses = [] } = parent._meta?.effectiveness ?? {};
 
   const {
     helpers: { title },

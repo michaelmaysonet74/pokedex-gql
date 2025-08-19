@@ -2,12 +2,12 @@ import { getImmunities } from ".";
 import { MetaPokemon } from "..";
 import { ResolverContext } from "../../../context/types";
 import helpers from "../../../helpers";
-import { fakeTypeChart } from "../../../fixtures/data-sources/pokemon-type-chart";
+import { fakeEffectiveness } from "../../../fixtures/data-sources/pokemon-type-chart";
 
 const baseParent: MetaPokemon = {
   id: "7",
   _meta: {
-    typeChart: fakeTypeChart,
+    effectiveness: fakeEffectiveness,
   },
 };
 

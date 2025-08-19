@@ -68,7 +68,7 @@ describe("Query.pokemonById", () => {
       .mockResolvedValue(fakeEvolutionChain);
 
     jest
-      .spyOn(baseDataSources.pokemonTypeChart, "getPokemonTypeChart")
+      .spyOn(baseDataSources.pokemonTypeChart, "getPokemonEffectiveness")
       .mockResolvedValue(fakePokemonTypeChartResponse);
   });
 
