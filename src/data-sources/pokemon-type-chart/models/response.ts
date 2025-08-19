@@ -1,7 +1,7 @@
 import { Pokemon } from "./pokemon";
-import { TypeChart } from "./type-chart";
+import { Effectiveness } from "./effectiveness";
 
 export interface Response {
   pokemon: Pokemon;
-  type_chart: TypeChart;
+  effectiveness: Effectiveness;
 }

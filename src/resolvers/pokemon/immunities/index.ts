@@ -7,7 +7,7 @@ export const getImmunities = (
   _: null,
   ctx: ResolverContext
 ): SchemaPokemonType[] => {
-  const { immunities = [] } = parent._meta?.typeChart ?? {};
+  const { immunities = [] } = parent._meta?.effectiveness ?? {};
 
   const {
     helpers: { title },

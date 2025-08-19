@@ -1,7 +1,7 @@
 import { gql } from "apollo-server";
 import { SchemaPokemon } from "../../schema-types";
 import { Pokemon } from "../../data-sources/poke-api/models/pokemon";
-import { TypeChart } from "../../data-sources/pokemon-type-chart/models/type-chart";
+import { Effectiveness } from "../../data-sources/pokemon-type-chart/models/effectiveness";
 import { getName } from "./name";
 import { getMoves } from "./moves";
 import { getTypes } from "./types";
@@ -19,7 +19,7 @@ import { getResistances } from "./resistances";
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
     pokemonDetails?: Pokemon;
-    typeChart?: TypeChart;
+    effectiveness?: Effectiveness;
   };
 }
 

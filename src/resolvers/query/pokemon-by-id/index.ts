@@ -19,22 +19,20 @@ export const getPokemonById = async (
 
   if (!pokemonDetails) return null;
 
-  const pokemonTypeChartReq = {
+  const request = {
     pokemon: {
       name: pokemonDetails.name,
       types: pokemonDetails.types.map(({ type }) => type.name),
     },
   };
 
-  const pokemonTypeChartRes = await pokemonTypeChart.getPokemonTypeChart(
-    pokemonTypeChartReq
-  );
+  const response = await pokemonTypeChart.getPokemonEffectiveness(request);
 
   return {
     id: pokemonDetails.id.toString(),
     _meta: {
       pokemonDetails,
-      typeChart: pokemonTypeChartRes?.type_chart,
+      effectiveness: response?.effectiveness,
     },
   } as SchemaPokemon;
 };

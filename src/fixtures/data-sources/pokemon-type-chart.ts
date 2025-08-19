@@ -1,7 +1,7 @@
 import { Response } from "../../data-sources/pokemon-type-chart/models/response";
-import { TypeChart } from "../../data-sources/pokemon-type-chart/models/type-chart";
+import { Effectiveness } from "../../data-sources/pokemon-type-chart/models/effectiveness";
 
-export const fakeTypeChart: TypeChart = {
+export const fakeEffectiveness: Effectiveness = {
   immunities: [],
   resistances: ["Fire", "Ice", "Steel", "Water"],
   weaknesses: ["Electric", "Grass"],
@@ -12,5 +12,5 @@ export const fakePokemonTypeChartResponse: Response = {
     name: "Squirtle",
     types: ["Water"],
   },
-  type_chart: fakeTypeChart,
+  effectiveness: fakeEffectiveness,
 };
