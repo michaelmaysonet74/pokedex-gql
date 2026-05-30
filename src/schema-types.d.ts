@@ -135,6 +135,8 @@ export type SchemaPokemon = {
   entry?: Maybe<Scalars["String"]>;
   /** Pokemon's evolution chain */
   evolution?: Maybe<SchemaEvolutionChain>;
+  /** Pokemon's generation */
+  generation?: Maybe<Scalars["Int"]>;
   /** Pokemon's id, can match pokedex number (not always). */
   id: Scalars["ID"];
   /** List of types that this Pokemon is immune to. */

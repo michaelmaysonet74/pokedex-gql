@@ -13,6 +13,7 @@ export const getPokemonById = async (
 
   const {
     dataSources: { pokeAPI, pokemonTypeChart },
+    helpers: { title },
   } = ctx;
 
   const pokemonDetails = await pokeAPI.getPokemonById(id);
@@ -22,7 +23,7 @@ export const getPokemonById = async (
   const request = {
     pokemon: {
       name: pokemonDetails.name,
-      types: pokemonDetails.types.map(({ type }) => type.name),
+      types: pokemonDetails.types.map(({ type }) => title({ str: type.name })),
     },
   };
 

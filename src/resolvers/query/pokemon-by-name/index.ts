@@ -13,7 +13,7 @@ export const getPokemonByName = async (
 
   const {
     dataSources: { pokeAPI, pokemonTypeChart },
-    helpers: { constructedKebab, specialNameMapper },
+    helpers: { constructedKebab, specialNameMapper, title },
   } = ctx;
 
   const pokemonDetails = await pokeAPI.getPokemonByName(
@@ -26,7 +26,7 @@ export const getPokemonByName = async (
   const request = {
     pokemon: {
       name: pokemonDetails.name,
-      types: pokemonDetails.types.map(({ type }) => type.name),
+      types: pokemonDetails.types.map(({ type }) => title({ str: type.name })),
     },
   };
 

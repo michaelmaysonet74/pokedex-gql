@@ -51,6 +51,7 @@ export const fakePokemonById: SchemaPokemon = {
     speed: 43,
     total: 314,
   },
+  generation: 1,
 };
 
 export const fakePokemonByName: SchemaPokemon = {
@@ -96,4 +97,5 @@ export const fakePokemonByName: SchemaPokemon = {
     speed: 58,
     total: 405,
   },
+  generation: 1,
 };

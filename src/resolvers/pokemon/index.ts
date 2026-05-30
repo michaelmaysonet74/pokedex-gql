@@ -15,6 +15,7 @@ import { getBaseStats } from "./base-stats";
 import { getCategory } from "./category";
 import { getImmunities } from "./immunities";
 import { getResistances } from "./resistances";
+import { getGeneration } from "./generation";
 
 export interface MetaPokemon extends SchemaPokemon {
   _meta?: {
@@ -129,6 +130,9 @@ const PokemonSchema = gql`
 
     "Pokemon's category"
     category(language: Language): String
+
+    "Pokemon's generation"
+    generation: Int
   }
 `;
 
@@ -146,6 +150,7 @@ const PokemonResolver = {
   weaknesses: getWeaknesses,
   baseStats: getBaseStats,
   category: getCategory,
+  generation: getGeneration,
 };
 
 export default {
