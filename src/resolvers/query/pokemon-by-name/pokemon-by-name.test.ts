@@ -47,6 +47,7 @@ const GET_POKEMON_BY_NAME = gql`
         speed
         total
       }
+      generation
     }
   }
 `;
